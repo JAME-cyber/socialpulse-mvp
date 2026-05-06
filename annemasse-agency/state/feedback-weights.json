@@ -1,0 +1,37 @@
+{
+  "website_weight": 0.3,
+  "review_gap_weight": 0.25,
+  "sector_weight": 0.25,
+  "location_weight": 0.2,
+  "sector_reply_rates": {
+    "Restaurant": 10.5,
+    "Salon de coiffure": 0.0,
+    "Beauté": 0.0
+  },
+  "city_reply_rates": {
+    "Annemasse": 0.0,
+    "Gaillard": 11.1,
+    "Ville-la-Grand": 0.0
+  },
+  "channel_reply_rates": {
+    "linkedin": 14.3,
+    "email": 0.0,
+    "instagram": 7.7,
+    "sms": 0.0
+  },
+  "best_score_min": 70,
+  "best_score_max": 95,
+  "total_sent": 30,
+  "total_opened": 11,
+  "total_replied": 2,
+  "total_deals": 0,
+  "open_rate": 36.7,
+  "reply_rate": 6.7,
+  "deal_rate": 0.0,
+  "avg_deal_eur": 0.0,
+  "total_revenue_eur": 0,
+  "best_sector": "Restaurant",
+  "best_city": "Gaillard",
+  "best_channel": "linkedin",
+  "updated_at": "2026-05-06T15:47:11.209222+00:00"
+}

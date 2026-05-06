@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SocialPulse — Démo Vidéos Lead Gen</title>
+<meta name="description" content="Démo SocialPulse: vidéos lead gen générées automatiquement. HTML/GSAP → Puppeteer → FFmpeg MP4.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0e17; color: #f0f2f5; font-family: 'Inter', system-ui, sans-serif; }
+  .hero { padding: 60px 40px 40px; text-align: center; }
+  h1 { font-size: 36px; font-weight: 900; margin-bottom: 8px; letter-spacing: -1px; }
+  h1 .brand { color: #6366f1; }
+  .hero-sub { color: #94a3b8; font-size: 16px; line-height: 1.6; max-width: 700px; margin: 0 auto; }
+  .hero-sub code { background: rgba(99,102,241,0.15); padding: 2px 8px; border-radius: 4px; color: #6366f1; font-size: 13px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; padding: 20px 40px 40px; max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; max-width: 400px; } }
+  .card { background: rgba(17,24,39,0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; overflow: hidden; transition: all 0.3s; }
+  .card:hover { border-color: #6366f1; transform: translateY(-6px); box-shadow: 0 24px 80px rgba(0,0,0,0.5); }
+  .card-video { background: #000; position: relative; }
+  .card-video video { width: 100%; display: block; }
+  .card-body { padding: 24px; }
+  .card-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .card-meta { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+  .card-tags { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+  .tag { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 6px; }
+  .tag-indigo { background: rgba(99,102,241,.15); color: #818cf8; }
+  .tag-green { background: rgba(16,185,129,.15); color: #34d399; }
+  .tag-amber { background: rgba(245,158,11,.15); color: #fbbf24; }
+  .back { display: inline-block; margin: 20px 40px; color: #818cf8; font-size: 14px; font-weight: 600; }
+  .back:hover { color: #6366f1; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>⚡ <span class="brand">SocialPulse</span> — Démo Vidéos</h1>
+  <p class="hero-sub">3 vidéos lead gen générées par <code>socialpulse_templates.py</code> → HTML/GSAP → Puppeteer → FFmpeg H.264. 1080×1920, 30fps.</p>
+</div>
+<a class="back" href="index.html">← Retour SocialPulse</a>
+<div class="grid">
+  <div class="card">
+    <div class="card-video"><video controls playsinline muted src="videos/lead-card-immobilier.mp4"></video></div>
+    <div class="card-body">
+      <div class="card-title">Lead Card — Immobilier</div>
+      <div class="card-meta">Immolière Lac SA · Signal: Ouverture 3e agence · Score 91/100 · 10s</div>
+      <div class="card-tags">
+        <span class="tag tag-indigo">Lead Card</span>
+        <span class="tag tag-green">Hot Lead</span>
+        <span class="tag tag-amber">Immobilier</span>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-video"><video controls playsinline muted src="videos/lead-card-tech.mp4"></video></div>
+    <div class="card-body">
+      <div class="card-title">Lead Card — SaaS Tech</div>
+      <div class="card-meta">TechVision SAS · Signal: Seed Round 2M€ · Score 85/100 · 10s</div>
+      <div class="card-tags">
+        <span class="tag tag-indigo">Lead Card</span>
+        <span class="tag tag-green">Hot Lead</span>
+        <span class="tag tag-amber">SaaS / Tech</span>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-video"><video controls playsinline muted src="videos/listicle-btp.mp4"></video></div>
+    <div class="card-body">
+      <div class="card-title">Listicle — BTP</div>
+      <div class="card-meta">4 signaux d'achat BTP · Chantier 5M, Chef projet, ISO 9001 · 12s</div>
+      <div class="card-tags">
+        <span class="tag tag-indigo">Listicle</span>
+        <span class="tag tag-amber">BTP</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

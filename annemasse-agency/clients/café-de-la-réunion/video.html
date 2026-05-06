@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;overflow:hidden;background:#0a0e17;font-family:'Inter',sans-serif;color:#f0f2f5}
+.progress{position:absolute;top:0;left:0;right:0;height:4px;z-index:100}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#6366f1,#818cf8)}
+
+.scene{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px}
+
+#s1{z-index:1}
+#s2{z-index:2;opacity:0}
+#s3{z-index:3;opacity:0}
+#s4{z-index:4;opacity:0}
+
+.alert-badge{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:4px;color:#ef4444;background:rgba(239,68,68,.12);padding:12px 28px;border-radius:10px;border:1px solid rgba(239,68,68,.2)}
+.hook-title{font-size:52px;font-weight:900;text-align:center;margin-top:32px;line-height:1.1;letter-spacing:-1px}
+.hook-title .accent{color:#6366f1}
+.hook-sub{font-size:15px;color:rgba(240,242,245,.5);margin-top:16px;font-weight:500}
+
+.card{background:rgba(17,24,39,.85);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:48px;backdrop-filter:blur(10px);width:900px}
+.card-top{display:flex;align-items:center;gap:20px}
+.card-icon{font-size:52px}
+.card-name{font-size:32px;font-weight:800;letter-spacing:-.5px}
+.card-sector{font-size:12px;color:#6366f1;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-top:4px}
+.card-divider{height:1px;background:rgba(255,255,255,.06);margin:28px 0}
+.card-info{display:flex;flex-direction:column;gap:12px;font-size:16px}
+.card-info-row{display:flex;align-items:center;gap:10px}
+.card-info-icon{font-size:18px}
+.card-info-value{font-weight:600}
+.card-info-label{color:rgba(240,242,245,.5);font-size:13px;margin-left:auto}
+
+.score-display{font-size:120px;font-weight:900;color:#6366f1;font-variant-numeric:tabular-nums}
+.score-max{font-size:28px;color:rgba(240,242,245,.4)}
+.score-bar-bg{width:500px;height:12px;background:rgba(255,255,255,.06);border-radius:6px;margin-top:28px;overflow:hidden}
+.score-bar{height:100%;width:0%;border-radius:6px;background:linear-gradient(90deg,#f59e0b,#6366f1)}
+.score-label{font-size:13px;color:rgba(240,242,245,.4);text-transform:uppercase;letter-spacing:2px;margin-top:24px}
+
+.cta-section{text-align:center}
+.cta-icon{font-size:56px}
+.cta-title{font-size:28px;font-weight:800;margin-top:12px;color:#6366f1}
+.cta-text{font-size:16px;color:rgba(240,242,245,.6);margin-top:12px}
+.cta-btn{display:inline-block;margin-top:28px;font-size:18px;font-weight:700;color:#0a0e17;background:#6366f1;padding:18px 48px;border-radius:14px}
+.cta-url{margin-top:14px;font-size:13px;color:rgba(240,242,245,.4)}
+.cta-location{margin-top:8px;font-size:12px;color:rgba(240,242,245,.3)}
+</style>
+</head>
+<body>
+<div class="progress"><div class="progress-fill" id="pFill"></div></div>
+
+<div class="scene" id="s1">
+  <div class="alert-badge" id="badge">🚨 SITE WEB MANQUANT</div>
+  <div class="hook-title" id="hTitle">Ce commerce perd des <span class="accent">clients</span></div>
+  <div class="hook-sub" id="hSub">Sans site web, 82% de clients potentiels passent à côté</div>
+</div>
+
+<div class="scene" id="s2">
+  <div class="card" id="card">
+    <div class="card-top">
+      <div class="card-icon" id="cIcon">🍽️</div>
+      <div>
+        <div class="card-name" id="cName">Café de la Réunion</div>
+        <div class="card-sector" id="cSector">RESTAURANT</div>
+      </div>
+    </div>
+    <div class="card-divider"></div>
+    <div class="card-info">
+      <div class="card-info-row">
+        <span class="card-info-icon">📍</span>
+        <span class="card-info-value" id="cAddr">Chemin de Sous-Balme</span>
+        <span class="card-info-label">Adresse</span>
+      </div>
+      <div class="card-info-row">
+        <span class="card-info-icon">⭐</span>
+        <span class="card-info-value" id="cRating">?/5</span>
+        <span class="card-info-label">Note Google</span>
+      </div>
+      <div class="card-info-row">
+        <span class="card-info-icon">🌐</span>
+        <span class="card-info-value" id="cWeb" style="color:#ef4444">Aucun site</span>
+        <span class="card-info-label">Site web</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="scene" id="s3">
+  <div class="score-label" id="sLabel">Opportunité Score</div>
+  <div><span class="score-display" id="sNum">0</span><span class="score-max"> /100</span></div>
+  <div class="score-bar-bg"><div class="score-bar" id="sBar"></div></div>
+</div>
+
+<div class="scene" id="s4">
+  <div class="cta-section">
+    <div class="cta-icon" id="ctaI">⚡</div>
+    <div class="cta-title" id="ctaT">SocialPulse</div>
+    <div class="cta-text" id="ctaTxt">Votre site vitrine en 48h<br>à partir de 350€</div>
+    <div class="cta-btn" id="ctaBtn">Réserver un appel →</div>
+    <div class="cta-url" id="ctaUrl">socialpulse.io</div>
+    <div class="cta-location">Basé à Annemasse · Haute-Savoie</div>
+  </div>
+</div>
+
+<script>
+var tl=gsap.timeline();window.__tl=tl;
+tl.to("#pFill",{width:"100%",duration:10,ease:"none"},0);
+
+// S1: Hook (0-3s)
+tl.fromTo("#badge",{scale:.7,opacity:0},{scale:1,opacity:1,duration:.5,ease:"back.out(1.7)"},.2);
+tl.fromTo("#hTitle",{y:50,opacity:0},{y:0,opacity:1,duration:.7,ease:"power3.out"},.5);
+tl.fromTo("#hSub",{opacity:0},{opacity:1,duration:.4},1);
+tl.to("#s1",{opacity:0,duration:.4},2.8);
+
+// S2: Card (3-6s)
+tl.set("#s2",{opacity:1},2.8);
+tl.fromTo("#card",{y:80,opacity:0,scale:.9},{y:0,opacity:1,scale:1,duration:.8,ease:"power3.out"},3);
+tl.fromTo(".card-info-row",{x:-30,opacity:0},{x:0,opacity:1,duration:.4,stagger:.15},3.6);
+tl.to("#s2",{opacity:0,duration:.4},5.8);
+
+// S3: Score (6-8s)
+tl.set("#s3",{opacity:1},5.8);
+tl.fromTo("#sLabel",{y:-20,opacity:0},{y:0,opacity:1,duration:.4},6);
+tl.fromTo("#sNum",{scale:.5,opacity:0},{scale:1,opacity:1,duration:.6,ease:"back.out(1.5)"},6.2);
+tl.to("#sNum",{innerText:82,duration:1.5,snap:{innerText:1},ease:"power2.out"},6.3);
+tl.to("#sBar",{width:"82%",duration:1.5,ease:"power2.out"},6.3);
+tl.to("#s3",{opacity:0,duration:.4},7.8);
+
+// S4: CTA (8-10s)
+tl.set("#s4",{opacity:1},7.8);
+tl.fromTo("#ctaI",{scale:0},{scale:1,duration:.5,ease:"back.out(2)"},8);
+tl.fromTo("#ctaT",{y:20,opacity:0},{y:0,opacity:1,duration:.4},8.2);
+tl.fromTo("#ctaTxt",{opacity:0},{opacity:1,duration:.4},8.5);
+tl.fromTo("#ctaBtn",{scale:.9,opacity:0},{scale:1,opacity:1,duration:.4,ease:"back.out(1.5)"},9);
+tl.fromTo("#ctaUrl",{opacity:0},{opacity:1,duration:.3},9.4);
+</script>
+</body>
+</html>

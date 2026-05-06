@@ -1,0 +1,373 @@
+{
+  "batch_id": "annemasse-20260506-104224",
+  "entries": [
+    {
+      "seq": 1,
+      "timestamp": "2026-05-06T10:42:24.709011",
+      "action": "orchestrator.init",
+      "actor": "system",
+      "details": {
+        "agents": 7,
+        "campaign": "annemasse-local-business",
+        "cities": [
+          "Annemasse",
+          "Gaillard",
+          "Ville-la-Grand",
+          "Saint-Julien-en-Genevois"
+        ]
+      },
+      "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "sha256:f2fa7e26b0481042331f6658a5af74f09b4ed2edda99b9a742abcb34add0dbb8"
+    },
+    {
+      "seq": 2,
+      "timestamp": "2026-05-06T10:42:25.445239",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "restaurant Annemasse"
+      },
+      "prev_hash": "sha256:f2fa7e26b0481042331f6658a5af74f09b4ed2edda99b9a742abcb34add0dbb8",
+      "hash": "sha256:f5a00a51dcada128c465439cb5e3c14a99e72990d34e29d636475d89918f03d6"
+    },
+    {
+      "seq": 3,
+      "timestamp": "2026-05-06T10:42:25.542731",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "restaurant Gaillard"
+      },
+      "prev_hash": "sha256:f5a00a51dcada128c465439cb5e3c14a99e72990d34e29d636475d89918f03d6",
+      "hash": "sha256:9226a117253bf29654459f61d5898cbbc6f6f339fecf95b9f5aa34c4c32783fe"
+    },
+    {
+      "seq": 4,
+      "timestamp": "2026-05-06T10:42:25.640543",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "brasserie Ville-la-Grand"
+      },
+      "prev_hash": "sha256:9226a117253bf29654459f61d5898cbbc6f6f339fecf95b9f5aa34c4c32783fe",
+      "hash": "sha256:bd31fd9e94b959868cbdf14b0721390334f7a3c7023e9475c1e296cfd952a007"
+    },
+    {
+      "seq": 5,
+      "timestamp": "2026-05-06T10:42:25.747934",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "restaurant Saint-Julien-en-Genevois"
+      },
+      "prev_hash": "sha256:bd31fd9e94b959868cbdf14b0721390334f7a3c7023e9475c1e296cfd952a007",
+      "hash": "sha256:cfca14cd7fc044f7a0c24076fd3c7ed5adb903c23fb0cbb605f83c164f3e7479"
+    },
+    {
+      "seq": 6,
+      "timestamp": "2026-05-06T10:42:25.849938",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "salon coiffure Annemasse"
+      },
+      "prev_hash": "sha256:cfca14cd7fc044f7a0c24076fd3c7ed5adb903c23fb0cbb605f83c164f3e7479",
+      "hash": "sha256:e84d38b17fce3e2130710f58e21266fd059f93bf32064526c59d51f79d10a27f"
+    },
+    {
+      "seq": 7,
+      "timestamp": "2026-05-06T10:42:25.949322",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "coiffeur Gaillard"
+      },
+      "prev_hash": "sha256:e84d38b17fce3e2130710f58e21266fd059f93bf32064526c59d51f79d10a27f",
+      "hash": "sha256:4c9e6c6b12f9491c749311254783c90e735c2c7bd94d2a31c07a19610992516c"
+    },
+    {
+      "seq": 8,
+      "timestamp": "2026-05-06T10:42:26.048177",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "salon coiffure Saint-Julien"
+      },
+      "prev_hash": "sha256:4c9e6c6b12f9491c749311254783c90e735c2c7bd94d2a31c07a19610992516c",
+      "hash": "sha256:09e2bb023f2f1693920264f792887af3cdfd1109dbbd65085a63d2f1fb070b87"
+    },
+    {
+      "seq": 9,
+      "timestamp": "2026-05-06T10:42:26.146746",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "plombier Annemasse"
+      },
+      "prev_hash": "sha256:09e2bb023f2f1693920264f792887af3cdfd1109dbbd65085a63d2f1fb070b87",
+      "hash": "sha256:280b6356073d4023ca41d91307c0d20cbfc297a58c17809cb550342ff6b1b8ad"
+    },
+    {
+      "seq": 10,
+      "timestamp": "2026-05-06T10:42:26.246856",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "chauffagiste Gaillard"
+      },
+      "prev_hash": "sha256:280b6356073d4023ca41d91307c0d20cbfc297a58c17809cb550342ff6b1b8ad",
+      "hash": "sha256:aa81f29892443d6ee0d7f9f4f6e89f5f6c379d7355e37e135433dd8baaaafa9c"
+    },
+    {
+      "seq": 11,
+      "timestamp": "2026-05-06T10:42:26.346541",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "plombier Saint-Julien-en-Genevois"
+      },
+      "prev_hash": "sha256:aa81f29892443d6ee0d7f9f4f6e89f5f6c379d7355e37e135433dd8baaaafa9c",
+      "hash": "sha256:d33f7076dfc79287c549e619439ee2c2421ff64d248c41a3452d49687a385129"
+    },
+    {
+      "seq": 12,
+      "timestamp": "2026-05-06T10:42:26.444777",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "cabinet avocat Annemasse"
+      },
+      "prev_hash": "sha256:d33f7076dfc79287c549e619439ee2c2421ff64d248c41a3452d49687a385129",
+      "hash": "sha256:a45b729c0ca9a98db65b54871d64080ec8727e10fe76a698f2477d4b070876ba"
+    },
+    {
+      "seq": 13,
+      "timestamp": "2026-05-06T10:42:26.543559",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "avocat Gaillard"
+      },
+      "prev_hash": "sha256:a45b729c0ca9a98db65b54871d64080ec8727e10fe76a698f2477d4b070876ba",
+      "hash": "sha256:41c1c1f980c96fc47e56ace1f3bbe235408776c25b0040144041ee056db5e4e0"
+    },
+    {
+      "seq": 14,
+      "timestamp": "2026-05-06T10:42:26.668446",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "avocat Saint-Julien-en-Genevois"
+      },
+      "prev_hash": "sha256:41c1c1f980c96fc47e56ace1f3bbe235408776c25b0040144041ee056db5e4e0",
+      "hash": "sha256:468ca6184e9020b211d8bf0a5d55b77445a8a93c779d22f903ba87be238ca9cd"
+    },
+    {
+      "seq": 15,
+      "timestamp": "2026-05-06T10:42:26.765799",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "agence immobilière Annemasse"
+      },
+      "prev_hash": "sha256:468ca6184e9020b211d8bf0a5d55b77445a8a93c779d22f903ba87be238ca9cd",
+      "hash": "sha256:80e6d518d18eeaa8441e5e12ba07b2b0b9000333a6b355b88f35c56ffde17961"
+    },
+    {
+      "seq": 16,
+      "timestamp": "2026-05-06T10:42:26.866235",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "agent immobilier Gaillard"
+      },
+      "prev_hash": "sha256:80e6d518d18eeaa8441e5e12ba07b2b0b9000333a6b355b88f35c56ffde17961",
+      "hash": "sha256:02d7b7d73dc36d5ba8435d4b1ce60bcf550e38c9d19996335972560a042ec2ca"
+    },
+    {
+      "seq": 17,
+      "timestamp": "2026-05-06T10:42:26.971590",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "immobilier Saint-Julien"
+      },
+      "prev_hash": "sha256:02d7b7d73dc36d5ba8435d4b1ce60bcf550e38c9d19996335972560a042ec2ca",
+      "hash": "sha256:29cfde88c1b81ab723ee3f469f8035ebcf5d724f2900cf4f4e9effe7a829a5d6"
+    },
+    {
+      "seq": 18,
+      "timestamp": "2026-05-06T10:42:27.071078",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "garage automobile Annemasse"
+      },
+      "prev_hash": "sha256:29cfde88c1b81ab723ee3f469f8035ebcf5d724f2900cf4f4e9effe7a829a5d6",
+      "hash": "sha256:f9f67047d1ded4724b859e936e8ba66bf012e70d60142c4d4642013864c43c38"
+    },
+    {
+      "seq": 19,
+      "timestamp": "2026-05-06T10:42:27.168935",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "mécanicien Gaillard"
+      },
+      "prev_hash": "sha256:f9f67047d1ded4724b859e936e8ba66bf012e70d60142c4d4642013864c43c38",
+      "hash": "sha256:0862577cb95ebd7c35cebf09391d5bd974956b3e4f6d96581d2fbab682b63d8e"
+    },
+    {
+      "seq": 20,
+      "timestamp": "2026-05-06T10:42:27.267467",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "garage auto Saint-Julien"
+      },
+      "prev_hash": "sha256:0862577cb95ebd7c35cebf09391d5bd974956b3e4f6d96581d2fbab682b63d8e",
+      "hash": "sha256:c061323a9237a0e306fc9ca1f86208f23a6fd4535f5acafb7dde4ce651b2dde0"
+    },
+    {
+      "seq": 21,
+      "timestamp": "2026-05-06T10:42:27.366384",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "expert comptable Annemasse"
+      },
+      "prev_hash": "sha256:c061323a9237a0e306fc9ca1f86208f23a6fd4535f5acafb7dde4ce651b2dde0",
+      "hash": "sha256:ea6d4e77192a0c5fc962633c02a0eb8203dde3bbf3bcdccd8c28691be162595a"
+    },
+    {
+      "seq": 22,
+      "timestamp": "2026-05-06T10:42:27.465181",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "cabinet comptable Gaillard"
+      },
+      "prev_hash": "sha256:ea6d4e77192a0c5fc962633c02a0eb8203dde3bbf3bcdccd8c28691be162595a",
+      "hash": "sha256:b0ec23c2a02500f40e2927e74e257197ce6d5966e71641c137cbcf0f859a079e"
+    },
+    {
+      "seq": 23,
+      "timestamp": "2026-05-06T10:42:27.590020",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "boulangerie Annemasse"
+      },
+      "prev_hash": "sha256:b0ec23c2a02500f40e2927e74e257197ce6d5966e71641c137cbcf0f859a079e",
+      "hash": "sha256:817a7cddaa27fd07c835b980edab37b7a125c21ca90a85f857fbd736ba818941"
+    },
+    {
+      "seq": 24,
+      "timestamp": "2026-05-06T10:42:27.689044",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "boulangerie Gaillard"
+      },
+      "prev_hash": "sha256:817a7cddaa27fd07c835b980edab37b7a125c21ca90a85f857fbd736ba818941",
+      "hash": "sha256:efa5c09fb889fc622a102cb7491e74cec6d88b446453e096ed8e1d733aa6ff88"
+    },
+    {
+      "seq": 25,
+      "timestamp": "2026-05-06T10:42:27.789515",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "pâtisserie Ville-la-Grand"
+      },
+      "prev_hash": "sha256:efa5c09fb889fc622a102cb7491e74cec6d88b446453e096ed8e1d733aa6ff88",
+      "hash": "sha256:ce4400d4565e15a240b3b5322cd57703df835ae76ea444c9058dfa8687d55f06"
+    },
+    {
+      "seq": 26,
+      "timestamp": "2026-05-06T10:42:27.892678",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "kinésithérapeute Annemasse"
+      },
+      "prev_hash": "sha256:ce4400d4565e15a240b3b5322cd57703df835ae76ea444c9058dfa8687d55f06",
+      "hash": "sha256:53b1ddc6e82e131f1ca5ebf82abb3f18f5fcbcb7f5fcaa7ca29ce51f45a4ade3"
+    },
+    {
+      "seq": 27,
+      "timestamp": "2026-05-06T10:42:27.992325",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "ostéopathe Gaillard"
+      },
+      "prev_hash": "sha256:53b1ddc6e82e131f1ca5ebf82abb3f18f5fcbcb7f5fcaa7ca29ce51f45a4ade3",
+      "hash": "sha256:c714d4269ba4e5fe0824a43795dc01da814ba51424cc169c02c3de6ebe236a55"
+    },
+    {
+      "seq": 28,
+      "timestamp": "2026-05-06T10:42:28.094972",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "kiné Saint-Julien"
+      },
+      "prev_hash": "sha256:c714d4269ba4e5fe0824a43795dc01da814ba51424cc169c02c3de6ebe236a55",
+      "hash": "sha256:04320b108227ddfe6c385fea869ef72b0495dd6c81ba66d8192fcbdb89d74d9c"
+    },
+    {
+      "seq": 29,
+      "timestamp": "2026-05-06T10:42:28.197887",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "fleuriste Annemasse"
+      },
+      "prev_hash": "sha256:04320b108227ddfe6c385fea869ef72b0495dd6c81ba66d8192fcbdb89d74d9c",
+      "hash": "sha256:e193ee52fc34689505a22bd327b59d30463a563455dfe6094bc8726c049d536d"
+    },
+    {
+      "seq": 30,
+      "timestamp": "2026-05-06T10:42:28.297384",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Authentication token was not provided",
+        "query": "fleuriste Gaillard"
+      },
+      "prev_hash": "sha256:e193ee52fc34689505a22bd327b59d30463a563455dfe6094bc8726c049d536d",
+      "hash": "sha256:0b8a3410a5f85a86481fac4a0890d3c55723c0c703727b53869cb462d58aa497"
+    }
+  ],
+  "total": 30,
+  "updated": "2026-05-06T10:42:28.297481"
+}

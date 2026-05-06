@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SocialPulse — Lead Gen Engine B2B | De la donnée brute au lead qualifié</title>
+<meta name="description" content="SocialPulse transforme les données publiques en leads B2B qualifiés. Pipeline automatisé : PLAN → SCRAP → EXPLOIT → FACTURE. Multi-secteur, multi-région.">
+<meta name="keywords" content="lead gen B2B, scraping PME, prospection automatisée, lead scoring, cold outreach, SaaS lead generation, B2B pipeline">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SocialPulse — Lead Gen Engine B2B">
+<meta property="og:description" content="De la donnée brute au lead qualifié en 5 minutes. Pipeline PLAN → SCRAP → EXPLOIT → FACTURE.">
+<meta property="og:url" content="https://socialpulse.io/">
+<link rel="canonical" href="https://socialpulse.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SocialPulse",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Lead Gen Engine B2B. Transforme les données publiques en leads qualifiés avec pipeline automatisé.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0a0e17;--bg2:#111827;--bg3:#1a2332;--bg4:#1f2b3d;
+--border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);
+--text:#f0f2f5;--text2:rgba(240,242,245,.7);--text3:rgba(240,242,245,.4);
+--pulse:#6366f1;--pulse2:#818cf8;--pulse-glow:rgba(99,102,241,.25);
+--violet:#7c3aed;--violet2:#a78bfa;
+--amber:#f59e0b;--amber2:#fbbf24;
+--red:#ef4444;--red2:#f87171;
+--green:#10b981;--green2:#34d399;
+--blue:#3b82f6;--blue2:#60a5fa;
+--cyan:#06b6d4;--cyan2:#22d3ee;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+a{color:var(--pulse2);text-decoration:none}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,23,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.5px}
+.nav-brand span{color:var(--pulse2)}
+.nav-links{display:flex;gap:24px;font-size:13px;font-weight:500}
+.nav-links a{color:var(--text2);transition:color .2s}
+.nav-links a:hover{color:var(--pulse2)}
+.nav-cta{background:var(--pulse);color:#fff;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s}
+.nav-cta:hover{background:var(--pulse2);transform:translateY(-1px)}
+
+/* HERO */
+.hero{padding:140px 24px 80px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--pulse-glow) 0%,transparent 70%);opacity:.3;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.2);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--pulse2);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--pulse2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(36px,5vw,64px);font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:20px}
+.hero h1 .pulse{color:var(--pulse2)}
+.hero h1 .amber{color:var(--amber)}
+.hero p{font-size:18px;color:var(--text2);max-width:640px;margin:0 auto 40px;line-height:1.7}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{padding:14px 28px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;border:none;font-family:inherit}
+.btn-primary{background:var(--pulse);color:#fff}
+.btn-primary:hover{background:var(--pulse2);transform:translateY(-2px);box-shadow:0 8px 24px var(--pulse-glow)}
+.btn-secondary{background:rgba(255,255,255,.05);color:var(--text);border:1px solid var(--border2)}
+.btn-secondary:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+
+/* SECTION */
+.section{padding:80px 24px}
+.section-header{text-align:center;margin-bottom:56px}
+.section-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.15);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:600;color:var(--pulse2);margin-bottom:16px;text-transform:uppercase;letter-spacing:1.5px}
+.section-title{font-size:clamp(28px,3.5vw,42px);font-weight:800;letter-spacing:-1.5px;margin-bottom:12px}
+.section-subtitle{font-size:16px;color:var(--text2);max-width:560px;margin:0 auto}
+
+/* PIPELINE */
+.pipeline-visual{display:grid;grid-template-columns:1fr;gap:0;position:relative}
+.pipeline-step{position:relative;padding:40px;border:1px solid var(--border);border-radius:16px;background:var(--bg2);transition:all .4s}
+.pipeline-step.active{border-color:var(--pulse);box-shadow:0 0 40px var(--pulse-glow);transform:scale(1.02)}
+.pipeline-step.completed{border-color:var(--green);opacity:.7}
+.pipeline-step .step-num{position:absolute;top:-12px;left:24px;background:var(--bg2);padding:2px 12px;border-radius:100px;font-size:11px;font-weight:700;color:var(--pulse2);border:1px solid var(--border2)}
+.pipeline-step.active .step-num{background:var(--pulse);color:#fff;border-color:var(--pulse)}
+.pipeline-step.completed .step-num{background:var(--green);color:#fff;border-color:var(--green)}
+.pipeline-step h3{font-size:22px;font-weight:700;margin-bottom:8px;letter-spacing:-.5px}
+.pipeline-step p{color:var(--text2);font-size:14px;line-height:1.6}
+.pipeline-step .step-icon{font-size:28px;margin-bottom:12px}
+.pipeline-arrow{display:flex;justify-content:center;padding:8px 0;color:var(--text3);font-size:20px}
+.pipeline-arrow.active{color:var(--pulse2);animation:bounceDown 1s infinite}
+@keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* DEMO CONTROLS */
+.demo-controls{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:40px}
+.demo-controls h3{font-size:18px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.demo-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:768px){.demo-row{grid-template-columns:1fr}}
+.demo-field label{display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.demo-field select,.demo-field input{width:100%;padding:10px 14px;background:var(--bg);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-size:14px;font-family:inherit;transition:border-color .2s}
+.demo-field select:focus,.demo-field input:focus{outline:none;border-color:var(--pulse)}
+.btn-demo{width:100%;padding:14px;background:linear-gradient(135deg,var(--pulse),var(--violet));color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s;margin-top:8px}
+.btn-demo:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--pulse-glow)}
+.btn-demo:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn-demo.running{background:linear-gradient(135deg,var(--amber),#d97706);animation:btnPulse 1.5s infinite}
+@keyframes btnPulse{0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,.4)}50%{box-shadow:0 0 20px 4px rgba(245,158,11,.2)}}
+
+/* LIVE OUTPUT */
+.live-output{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:40px}
+.live-output-header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--border);background:var(--bg3)}
+.live-output-header h4{font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px}
+.live-output-header .status{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:4px 10px;border-radius:100px}
+.status-idle{background:rgba(255,255,255,.05);color:var(--text3)}
+.status-running{background:rgba(245,158,11,.1);color:var(--amber2)}
+.status-done{background:rgba(16,185,129,.1);color:var(--green2)}
+.live-output-body{padding:24px;max-height:500px;overflow-y:auto;font-family:'Courier New',monospace;font-size:13px;line-height:1.8}
+.log-line{opacity:0;animation:fadeIn .3s forwards}
+.log-line .timestamp{color:var(--text3);margin-right:8px}
+.log-line .action{color:var(--pulse2)}
+.log-line .data{color:var(--amber2)}
+.log-line .success{color:var(--green2)}
+.log-line .error{color:var(--red2)}
+@keyframes fadeIn{to{opacity:1}}
+
+/* LEAD CARDS */
+.leads-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;margin-top:32px}
+.lead-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .3s;opacity:0;transform:translateY(20px)}
+.lead-card.visible{opacity:1;transform:translateY(0)}
+.lead-card:hover{border-color:var(--pulse);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.lead-card .lead-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+.lead-card .lead-company{font-size:17px;font-weight:700;letter-spacing:-.3px}
+.lead-card .lead-industry{font-size:12px;color:var(--text2);margin-top:2px}
+.lead-card .lead-score{font-size:28px;font-weight:900;letter-spacing:-1px}
+.lead-card .lead-score.hot{color:var(--green2)}
+.lead-card .lead-score.warm{color:var(--amber2)}
+.lead-card .lead-score.cold{color:var(--red2)}
+.lead-card .lead-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.lead-card .detail{font-size:12px;color:var(--text2)}
+.lead-card .detail strong{color:var(--text);display:block;margin-bottom:2px}
+.lead-card .signal-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;margin-bottom:12px}
+.signal-high{background:rgba(16,185,129,.1);color:var(--green2);border:1px solid rgba(16,185,129,.2)}
+.signal-med{background:rgba(245,158,11,.1);color:var(--amber2);border:1px solid rgba(245,158,11,.2)}
+.signal-low{background:rgba(239,68,68,.1);color:var(--red2);border:1px solid rgba(239,68,68,.2)}
+.lead-card .email-preview{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:12px;line-height:1.6;color:var(--text2);margin-top:12px;max-height:0;overflow:hidden;transition:max-height .4s,padding .4s}
+.lead-card .email-preview.open{max-height:300px;padding:12px}
+.lead-card .btn-email{width:100%;padding:8px;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.2);color:var(--pulse2);border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;margin-top:8px}
+.lead-card .btn-email:hover{background:rgba(99,102,241,.2)}
+
+/* STATS BAR */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
+@media(max-width:768px){.stats-bar{grid-template-columns:1fr 1fr}}
+.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-card .stat-value{font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:4px}
+.stat-card .stat-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.stat-card .stat-value.pulse{color:var(--pulse2)}
+.stat-card .stat-value.amber{color:var(--amber2)}
+.stat-card .stat-value.green{color:var(--green2)}
+.stat-card .stat-value.red{color:var(--red2)}
+
+/* COST */
+.cost-section{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:32px;margin-top:32px}
+.cost-section h3{font-size:20px;font-weight:700;margin-bottom:20px}
+.cost-table{width:100%;border-collapse:collapse;font-size:14px}
+.cost-table th{text-align:left;padding:10px 12px;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--text3);border-bottom:1px solid var(--border)}
+.cost-table td{padding:10px 12px;border-bottom:1px solid var(--border)}
+.cost-table .cost-label{color:var(--text2)}
+.cost-table .cost-value{font-weight:700;font-family:'Courier New',monospace}
+.cost-table .cost-value.cheap{color:var(--green2)}
+.cost-total{display:flex;justify-content:space-between;align-items:center;padding:16px 12px;font-size:18px;font-weight:800}
+.cost-total .roi{color:var(--amber2);font-size:14px;font-weight:600}
+
+/* FRAMEWORK */
+.framework-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+@media(max-width:768px){.framework-grid{grid-template-columns:1fr 1fr}}
+.fw-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:28px;text-align:center;transition:all .3s;position:relative;overflow:hidden}
+.fw-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.fw-card:nth-child(1)::before{background:var(--pulse)}
+.fw-card:nth-child(2)::before{background:var(--cyan)}
+.fw-card:nth-child(3)::before{background:var(--amber)}
+.fw-card:nth-child(4)::before{background:var(--green)}
+.fw-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.fw-card .fw-icon{font-size:36px;margin-bottom:12px}
+.fw-card .fw-step{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.fw-card:nth-child(1) .fw-step{color:var(--pulse2)}
+.fw-card:nth-child(2) .fw-step{color:var(--cyan2)}
+.fw-card:nth-child(3) .fw-step{color:var(--amber2)}
+.fw-card:nth-child(4) .fw-step{color:var(--green2)}
+.fw-card h4{font-size:20px;font-weight:800;margin-bottom:8px;letter-spacing:-.5px}
+.fw-card p{font-size:13px;color:var(--text2);line-height:1.5}
+
+/* VERTICALS */
+.verticals-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:32px}
+.vertical-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;transition:all .3s;cursor:pointer}
+.vertical-card:hover{border-color:var(--pulse);transform:translateY(-2px)}
+.vertical-card .v-icon{font-size:28px;margin-bottom:8px}
+.vertical-card .v-name{font-size:13px;font-weight:700}
+.vertical-card .v-count{font-size:11px;color:var(--text3);margin-top:4px}
+
+/* FOOTER */
+.footer{padding:60px 24px 32px;border-top:1px solid var(--border);text-align:center}
+.footer p{font-size:13px;color:var(--text3)}
+
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
+
+.slide-up{opacity:0;transform:translateY(30px);transition:all .6s}
+.slide-up.visible{opacity:1;transform:translateY(0)}
+
+.progress-bar{height:4px;background:var(--bg4);border-radius:2px;margin:16px 0;overflow:hidden}
+.progress-bar .fill{height:100%;border-radius:2px;transition:width .5s;width:0%}
+.progress-bar .fill.pulse{background:var(--pulse)}
+.progress-bar .fill.amber{background:var(--amber)}
+.progress-bar .fill.green{background:var(--green)}
+
+.agent-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.agent-tag{font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px}
+.agent-tag.scraper{background:rgba(6,182,212,.1);color:var(--cyan2);border:1px solid rgba(6,182,212,.2)}
+.agent-tag.ai{background:rgba(99,102,241,.1);color:var(--pulse2);border:1px solid rgba(99,102,241,.2)}
+.agent-tag.enrich{background:rgba(245,158,11,.1);color:var(--amber2);border:1px solid rgba(245,158,11,.2)}
+.agent-tag.outreach{background:rgba(16,185,129,.1);color:var(--green2);border:1px solid rgba(16,185,129,.2)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-inner">
+<div class="nav-brand">⚡ Social<span>Pulse</span></div>
+<div class="nav-links">
+<a href="#verticals">Secteurs</a>
+<a href="#pipeline">Pipeline</a>
+<a href="#demo">Demo</a>
+<a href="#costs">Tarifs</a>
+</div>
+<button class="nav-cta" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Essai Gratuit</button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<div class="hero-badge"><span class="dot"></span> Lead Gen Engine v3.0</div>
+<h1>De la donnée publique<br>au <span class="pulse">lead qualifié</span><br>en <span class="amber">5 minutes</span></h1>
+<p>SocialPulse scrap, enrichit et score automatiquement vos prospects B2B. Pipeline PLAN → SCRAP → EXPLOIT → FACTURE. Multi-secteur, multi-région.</p>
+<div class="hero-actions">
+<button class="btn btn-primary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Voir la Demo</button>
+<button class="btn btn-secondary" onclick="document.getElementById('verticals').scrollIntoView({behavior:'smooth'})">Secteurs couverts</button>
+</div>
+</div>
+</section>
+
+<!-- VERTICALS -->
+<section class="section" id="verticals">
+<div class="container">
+<div class="section-header">
+<div class="section-badge">Couverture</div>
+<h2 class="section-title">Tous les secteurs B2B</h2>
+<p class="section-subtitle">SocialPulse s'adapte à votre marché. Pas l'inverse.</p>
+</div>
+<div class="verticals-grid">
+<div class="vertical-card"><div class="v-icon">📊</div><div class="v-name">Comptabilité</div><div class="v-count">2 400+ cabinets FR-CH</div></div>
+<div class="vertical-card"><div class="v-icon">⚖️</div><div class="v-name">Avocats</div><div class="v-count">1 800+ cabinets</div></div>
+<div class="vertical-card"><div class="v-icon">🏥</div><div class="v-name">Santé</div><div class="v-count">3 200+ cliniques</div></div>
+<div class="vertical-card"><div class="v-icon">🏦</div><div class="v-name">Finance</div><div class="v-count">900+ établissements</div></div>
+<div class="vertical-card"><div class="v-icon">🏗️</div><div class="v-name">BTP / Construction</div><div class="v-count">4 500+ entreprises</div></div>
+<div class="vertical-card"><div class="v-icon">🏠</div><div class="v-name">Immobilier</div><div class="v-count">3 100+ agences</div></div>
+<div class="vertical-card"><div class="v-icon">🚀</div><div class="v-name">SaaS / Tech</div><div class="v-count">6 000+ startups</div></div>
+<div class="vertical-card"><div class="v-icon">👥</div><div class="v-name">RH / Recrutement</div><div class="v-count">1 500+ cabinets</div></div>
+<div class="vertical-card"><div class="v-icon">🎓</div><div class="v-name">Formation</div><div class="v-count">2 200+ organismes</div></div>
+<div class="vertical-card"><div class="v-icon">🍽️</div><div class="v-name">Restauration</div><div class="v-count">8 000+ établissements</div></div>
+<div class="vertical-card"><div class="v-icon">🔧</div><div class="v-name">Industrie</div><div class="v-count">5 400+ PME</div></div>
+<div class="vertical-card"><div class="v-icon">🎯</div><div class="v-name">Agences Marketing</div><div class="v-count">2 800+ agences</div></div>
+</div>
+</div>
+</section>
+
+<!-- FRAMEWORK -->
+<section class="section" id="framework">
+<div class="container">
+<div class="section-header">
+<div class="section-badge">Méthodologie</div>
+<h2 class="section-title">Le Framework</h2>
+<p class="section-subtitle">4 étapes. Une boucle. Chaque cycle s'affine.</p>
+</div>
+<div class="framework-grid">
+<div class="fw-card">
+<div class="fw-icon">🎯</div>
+<div class="fw-step">Étape 1</div>
+<h4>PLAN</h4>
+<p>Définir le secteur, la région, le persona cible et le message d'approche. Sans plan, le scrap vaut zéro.</p>
+</div>
+<div class="fw-card">
+<div class="fw-icon">🔍</div>
+<div class="fw-step">Étape 2</div>
+<h4>SCRAP</h4>
+<p>Extraire les données publiques : Google Maps, annuaires, LinkedIn, sites web. Uniquement le nécessaire.</p>
+</div>
+<div class="fw-card">
+<div class="fw-icon">⚙️</div>
+<div class="fw-step">Étape 3</div>
+<h4>EXPLOIT</h4>
+<p>Enrichissement contacts, détection décideurs, scoring lead, signaux d'achat, personnalisation.</p>
+</div>
+<div class="fw-card">
+<div class="fw-icon">💰</div>
+<div class="fw-step">Étape 4</div>
+<h4>FACTURE</div>
+<p>Lead cards, emails personnalisés, séquences outreach. Le livrable se vend. Se répète. Se facture.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- DEMO -->
+<section class="section" id="demo">
+<div class="container">
+<div class="section-header">
+<div class="section-badge">Demo Live</div>
+<h2 class="section-title">Pipeline Interactif</h2>
+<p class="section-subtitle">Configurez et lancez. Observez chaque étape en temps réel.</p>
+</div>
+
+<div class="demo-controls">
+<h3>🛠️ Configuration</h3>
+<div class="demo-row">
+<div class="demo-field">
+<label>Secteur cible</label>
+<select id="sector">
+<option value="comptable">Comptabilité / Fiduciaire</option>
+<option value="avocat">Avocats / Juridique</option>
+<option value="sante">Santé / Médical</option>
+<option value="immobilier">Immobilier</option>
+<option value="tech">SaaS / Tech</option>
+<option value="rh">RH / Recrutement</option>
+<option value="btp">BTP / Construction</option>
+<option value="marketing">Agences Marketing</option>
+<option value="restaurant">Restauration</option>
+<option value="formation">Formation</option>
+</select>
+</div>
+<div class="demo-field">
+<label>Région</label>
+<select id="region">
+<option value="geneve">Genève</option>
+<option value="lausanne">Lausanne</option>
+<option value="montreux">Montreux</option>
+<option value="annecy">Annecy (74)</option>
+<option value="lyon">Lyon (69)</option>
+<option value="paris">Paris (75)</option>
+<option value="neuchatel">Neuchâtel</option>
+<option value="fribourg">Fribourg</option>
+</select>
+</div>
+<div class="demo-field">
+<label>Nombre de leads</label>
+<select id="leadCount">
+<option value="10">10 leads</option>
+<option value="25" selected>25 leads</option>
+<option value="50">50 leads</option>
+</select>
+</div>
+</div>
+<button class="btn-demo" id="runPipeline" onclick="runPipeline()">⚡ Lancer le Pipeline</button>
+<div class="progress-bar" id="progressBar"><div class="fill pulse" id="progressFill"></div></div>
+</div>
+
+<!-- PIPELINE STEPS -->
+<div class="pipeline-visual" id="pipelineVisual">
+<div class="pipeline-step" id="step-plan">
+<span class="step-num">ÉTAPE 1</span>
+<div class="step-icon">🎯</div>
+<h3>PLAN — Définition de la cible</h3>
+<p>Identification du secteur, mapping des décideurs, définition du message d'approche.</p>
+<div class="agent-tags">
+<span class="agent-tag ai">AI Planner</span>
+</div>
+</div>
+<div class="pipeline-arrow" id="arrow-1">↓</div>
+<div class="pipeline-step" id="step-scrap">
+<span class="step-num">ÉTAPE 2</span>
+<div class="step-icon">🔍</div>
+<h3>SCRAP — Extraction ciblée</h3>
+<p>Google Maps + annuaires professionnels + sites web. Uniquement les champs nécessaires.</p>
+<div class="agent-tags">
+<span class="agent-tag scraper">Google Maps</span>
+<span class="agent-tag scraper">Annuaires</span>
+<span class="agent-tag scraper">Web Scraper</span>
+</div>
+</div>
+<div class="pipeline-arrow" id="arrow-2">↓</div>
+<div class="pipeline-step" id="step-exploit">
+<span class="step-num">ÉTAPE 3</span>
+<div class="step-icon">⚙️</div>
+<h3>EXPLOIT — Enrichissement & Scoring</h3>
+<p>Contacts vérifiés, détection décideurs, scoring 0-100, signaux d'achat détectés.</p>
+<div class="agent-tags">
+<span class="agent-tag enrich">Contact Enricher</span>
+<span class="agent-tag enrich">LinkedIn</span>
+<span class="agent-tag ai">AI Scoring</span>
+</div>
+</div>
+<div class="pipeline-arrow" id="arrow-3">↓</div>
+<div class="pipeline-step" id="step-facture">
+<span class="step-num">ÉTAPE 4</span>
+<div class="step-icon">💰</div>
+<h3>FACTURE — Livrables prêts</h3>
+<p>Lead cards avec email personnalisé, prêts pour votre séquence outreach.</p>
+<div class="agent-tags">
+<span class="agent-tag ai">AI Writer</span>
+<span class="agent-tag outreach">Email Outreach</span>
+</div>
+</div>
+</div>
+
+<!-- CONSOLE -->
+<div class="live-output" id="liveOutput">
+<div class="live-output-header">
+<h4>📋 Console Pipeline</h4>
+<span class="status status-idle" id="consoleStatus">En attente</span>
+</div>
+<div class="live-output-body" id="consoleBody">
+<div class="log-line" style="opacity:1"><span class="timestamp">[--:--:--]</span> <span class="action">SocialPulse v3.0 prêt. Configurez et lancez.</span></div>
+</div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar" id="statsBar" style="display:none">
+<div class="stat-card"><div class="stat-value pulse" id="statScraped">0</div><div class="stat-label">Prospects Scrapés</div></div>
+<div class="stat-card"><div class="stat-value amber" id="statEnriched">0</div><div class="stat-label">Contacts Enrichis</div></div>
+<div class="stat-card"><div class="stat-value green" id="statQualified">0</div><div class="stat-label">Leads Qualifiés</div></div>
+<div class="stat-card"><div class="stat-value red" id="statHot">0</div><div class="stat-label">Hot Leads (80+)</div></div>
+</div>
+
+<!-- LEADS -->
+<div class="leads-grid" id="leadsGrid"></div>
+
+<!-- COST -->
+<div class="cost-section" id="costSection" style="display:none">
+<h3>💵 Coût / Lead</h3>
+<table class="cost-table">
+<thead><tr><th>Étape</th><th>Service</th><th>Coût</th></tr></thead>
+<tbody id="costBody"></tbody>
+</table>
+<div class="cost-total">
+<span>Coût total pipeline</span>
+<span class="roi" id="costTotal"></span>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<p>SocialPulse v3.0 — Lead Gen Engine B2B — PLAN → SCRAP → EXPLOIT → FACTURE</p>
+<p style="margin-top:6px">Données simulées pour démonstration. Pipeline réel disponible via API.</p>
+</div>
+</footer>
+
+<script>
+const DB = {
+  comptable: {
+    signals: ["Embauche comptable senior","Migration outil comptable","Fusion cabinet en cours","Expansion régionale"],
+    companies: [
+      {name:"Fiduciaire du Lac SA",size:85,addr:"Rue du Rhône 42, Genève"},
+      {name:"Comptabilité Lémanique",size:45,addr:"Av. de la Gare 18, Lausanne"},
+      {name:"Gestio Finance SA",size:120,addr:"Rue du Commerce 7, Genève"},
+      {name:"Expert Compta Montreux",size:30,addr:"Grand-Rue 55, Montreux"},
+      {name:"FiduConseil Riviera",size:65,addr:"Av. Grammont 12, Montreux"},
+      {name:"ABC Comptabilité SARL",size:22,addr:"Rue de la Paix 3, Annecy"},
+      {name:"FinGest Haute-Savoie",size:95,addr:"Av. d'Annecy 24, Annemasse"},
+      {name:"SwissFid SA",size:150,addr:"Bahnhofstrasse 10, Genève"},
+      {name:"Leman Audit & Conseil",size:70,addr:"Pl. de la Palud 9, Lausanne"},
+      {name:"ComptaPlus Neuchâtel",size:55,addr:"Rue du Seyon 28, Neuchâtel"},
+      {name:"AxaFid Genève",size:180,addr:"Rue de Lausanne 88, Genève"},
+      {name:"RhodoFid SA",size:40,addr:"Av. du Léman 15, Lausanne"},
+      {name:"Fiduciaire Alpes SARL",size:35,addr:"Rue Sommeiller 6, Annecy"},
+      {name:"ComptaVision Suisse",size:110,addr:"Rue du Valais 22, Genève"},
+      {name:"GestionPro Fribourg",size:60,addr:"Rue de Romont 14, Fribourg"},
+      {name:"FiduPartners SA",size:200,addr:"Quai du Mont-Blanc 3, Genève"},
+      {name:"SavoirCompter SARL",size:28,addr:"Rue du Grand-Pont 11, Lausanne"},
+      {name:"Fiduciaire du Perron",size:50,addr:"Pl. du Marché 4, Neuchâtel"},
+      {name:"OptiFid 74",size:75,addr:"Av. de Brogny 9, Annecy"},
+      {name:"ComptaExpert CH",size:130,addr:"Rue du Nord 33, Genève"},
+      {name:"LacCompta SARL",size:38,addr:"Av. de Cour 17, Lausanne"},
+      {name:"Fiduciaire du Vieil Annecy",size:42,addr:"Rue Sainte-Claire 8, Annecy"},
+      {name:"SwissAccount SA",size:165,addr:"Rue du Stand 56, Genève"},
+      {name:"ProGestion Montreux",size:48,addr:"Rue du Pont 21, Montreux"},
+      {name:"NeuchFid SARL",size:33,addr:"Rue de l'Écluse 5, Neuchâtel"}
+    ],
+    contacts: ["Marie Dupont","Jean-Luc Bernard","Sophie Favre","Pierre-André Martin","Claire Roux","Antoine Lecomte","Isabelle Morel","Laurent Perrin","Nathalie Gaillard","François Mercier","Véronique Dumont","Thomas Rey","Catherine Blanc","Marc Huguenin","Anne-Laure Chapuis","Denis Fontannaz","Julie Borlat","Lucas Oddy","Émilie Carrard","Nicolas Besson","Aurélie Pernet","Benoît Dufour","Christiane Morand","Alain Besse","Sandrine Perret"],
+    titles: ["Directrice","Associé","Gérante","Expert-comptable","Responsable Finance","Directeur Général","Associée fondatrice","Directeur","Chef de mission","Président","Associée","Directeur financier","Gérante","Expert-comptable associé","Directrice générale","Fondateur","Responsable clientèle","Expert-comptable","Associée","Directeur adjoint","Consultante senior","Associé gérant","Directrice administrative","Expert-comptable diplômé","Responsable mission"]
+  },
+  avocat: {
+    signals: ["Recrutement associé en droit des sociétés","Ouverture nouveau bureau","Spécialisation M&A","Croissance équipe contentieux"],
+    companies: [
+      {name:"Schellenberg & Associés",size:55,addr:"Rue du Marché 14, Genève"},
+      {name:"Cabinet Juris Léman",size:40,addr:"Av. de la Gare 22, Lausanne"},
+      {name:"Droit & Conseil SA",size:80,addr:"Rue du Rhône 66, Genève"},
+      {name:"Avocats du Lac SARL",size:25,addr:"Grand-Rue 31, Montreux"},
+      {name:"Perrin & Martin Avocats",size:35,addr:"Rue de la République 5, Annecy"},
+      {name:"JurisConsult CH",size:100,addr:"Rue du Stand 18, Genève"},
+      {name:"Cabinet Legal Alpes",size:30,addr:"Rue Sommeiller 12, Annecy"},
+      {name:"Fidal Lémanique SA",size:180,addr:"Bahnhofquai 8, Lausanne"},
+      {name:"DroitConseil Neuchâtel",size:45,addr:"Rue du Seyon 15, Neuchâtel"},
+      {name:"Barras & Cie",size:70,addr:"Rue de Lausanne 44, Genève"},
+      {name:"LexPro Fribourg",size:50,addr:"Rue de Romont 9, Fribourg"},
+      {name:"Cabinet Favre & Partner",size:65,addr:"Rue du Pont 27, Lausanne"},
+      {name:"LegalMontreux SARL",size:20,addr:"Av. Grammont 22, Montreux"},
+      {name:"JurisAnnecy SARL",size:38,addr:"Rue Carnot 14, Annecy"},
+      {name:"DroitSuisse SA",size:150,addr:"Rue du Commerce 30, Genève"},
+      {name:"Cabinet Vaud-Legal",size:42,addr:"Rue de Bourg 6, Lausanne"},
+      {name:"Avocats du Vieux Annecy",size:28,addr:"Rue Sainte-Claire 3, Annecy"},
+      {name:"SwissLegal Partners",size:120,addr:"Quai du Mont-Blanc 9, Genève"},
+      {name:"LexChablais SARL",size:35,addr:"Av. du Simplon 11, Monthey"},
+      {name:"Cabinet de l'Observatoire",size:60,addr:"Pl. de la Palud 2, Lausanne"},
+      {name:"JurisNeuch SARL",size:32,addr:"Place Pury 7, Neuchâtel"},
+      {name:"FidalEst SA",size:90,addr:"Rue de la Loi 18, Genève"},
+      {name:"Cabinet MontBlanc Avocats",size:48,addr:"Av. de Brogny 4, Annecy"},
+      {name:"DroitConseil Riviera",size:55,addr:"Rue du Théâtre 8, Montreux"},
+      {name:"LexPlus CH SA",size:140,addr:"Rue du Centre 22, Genève"}
+    ],
+    contacts: ["Me. Alexandre Favre","Me. Sophie Barras","Me. Laurent Schellenberg","Me. Claire Martin","Me. Jean-Philippe Perrin","Me. Isabelle Dupertuis","Me. Marc Huguenin","Me. Nathalie Gaillard","Me. Pierre Roux","Me. Anne-Laure Chapuis","Me. Denis Fontannaz","Me. Julie Borlat","Me. François Mercier","Me. Véronique Dumont","Me. Thomas Rey","Me. Catherine Blanc","Me. Antoine Lecomte","Me. Marie Besse","Me. Benoît Dufour","Me. Aurélie Pernet","Me. Lucas Oddy","Me. Sandrine Perret","Me. Alain Carrard","Me. Christiane Morand","Me. Nicolas Besson"],
+    titles: ["Associé fondateur","Associée","Associé","Partner","Avocate","Directrice juridique","Of Counsel","Avocat","Avocate associée","Managing Partner","Avocat senior","Counsel","Associé","Avocate","Directeur","Associée","Avocat","Avocate","Partner","Consultante","Avocat","Avocate","Of Counsel","Associée","Avocat"]
+  }
+};
+
+// Fill missing sectors from comptable template
+['sante','immobilier','tech','rh','btp','marketing','restaurant','formation'].forEach(s => {
+  if (!DB[s]) {
+    const prefixes = {sante:'Polyclinique|Centre Médical|Cabinet Médical|MediSante|Clinique'.split('|'),immobilier:'Immolière|Agorim|SwissProp|Domicim|ImmoPlus'.split('|'),tech:'TechVision|StartupLéman|InnovateCH|DigitalPlus|SwissApp'.split('|'),rh:'RHPro|TalentLéman|RecrutPlus|PeopleFirst|HRSolutions'.split('|'),btp:'BâtiPlus|ConstructCH|LemanBTP|EdiBati|BricoPro'.split('|'),marketing:'AgenceVolt|PulseMedia|KreaCH|DigitalEdge|CommStrategy'.split('|'),restaurant:'Le Comptoir|BrasserieLac|BistrotCH|TableLéman|CaféPulse'.split('|'),formation:'FormaPlus|EduLéman|SkillCH|ProFormation|LearnCenter'.split('|')};
+    const suffixes = {sante:' SA| SARL| - Centre| & Partners| du Lac'.split('|'),immobilier:' SA| Immobilier| & Cie| Group| Properties'.split('|'),tech:' SA| Tech| Digital| Lab| Innovation'.split('|'),rh:' SARL| SA| Consulting| Group| Solutions'.split('|'),btp:' SA| Construction| & Fils| BTP| Génie'.split('|'),marketing:' | Agency| Studio| & Co| Communications'.split('|'),restaurant:' | Bistrot| Brasserie| Restaurant| & Wine'.split('|'),formation:' | Académie| Institute| Campus| School'.split('|')};
+    const signals = {sante:["Extension cabinet médical","Nouveau scanner IRM","Recrutement médecin spécialiste","Déménagement"],immobilier:["Ouverture agence","Recrutement négociateur senior","Développement portefeuille mandats","Expansion zone couverture"],tech:["Levant de fonds Seed","Recrutement CTO","Lancement nouveau produit","Expansion marché CH"],rh:["Recrutement consultant senior","Ouverture antenne","Digitalisation process","Nouveau client corporate"],btp:["Chantier grand projet","Recrutement chef de projet","Extension zone intervention","Certification ISO"],marketing:["Nouveau client corporate","Recrutement chef de projet","Spécialisation sectorielle","Lancement offre vidéo"],restaurant:["Ouverture nouvelle adresse","Michelin en vue","Extension terrasse","Recrutement chef étoilé"],formation:["Accréditation nouvelle formation","Recrutement formateur expert","Lancement e-learning","Expansion catalogue"]};
+    DB[s] = {
+      signals: signals[s],
+      companies: DB.comptable.companies.map((c,i) => ({name:(prefixes[s][i%5]||'Pro')+(suffixes[s][i%5]||' SA'),size:c.size,addr:c.addr})),
+      contacts: DB.comptable.contacts,
+      titles: DB.comptable.titles.map(t => t.replace(/comptable|Expert-comptable/gi, s==='sante'?'Directeur médical':s==='immobilier'?'Négociateur':s==='tech'?'CTO':s==='rh'?'DRH':s==='btp'?'Directeur travaux':s==='marketing'?'Directrice de clientèle':s==='restaurant'?'Chef d\'établissement':'Directeur pédagogique'))
+    };
+  }
+});
+
+let isRunning = false;
+function ts(){const d=new Date();return `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}:${String(d.getSeconds()).padStart(2,'0')}`}
+function log(msg,cls='action'){const body=document.getElementById('consoleBody');const div=document.createElement('div');div.className='log-line';div.innerHTML=`<span class="timestamp">[${ts()}]</span> <span class="${cls}">${msg}</span>`;body.appendChild(div);body.scrollTop=body.scrollHeight}
+function setStep(id,state){const el=document.getElementById(id);el.classList.remove('active','completed');if(state)el.classList.add(state)}
+function setArrow(id,state){const el=document.getElementById(id);el.classList.remove('active');if(state)el.classList.add('active')}
+function setStatus(s){const el=document.getElementById('consoleStatus');el.className='status status-'+s;el.textContent=s==='idle'?'En attente':s==='running'?'En cours...':'Terminé'}
+function setProgress(pct){document.getElementById('progressFill').style.width=pct+'%'}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
+
+function generateEmail(firstName,lastName,company){
+  const clean=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]/g,"");
+  const domain=company.replace(/[^a-zA-Z0-9]/g,'').toLowerCase().slice(0,12)+'.ch';
+  return `${clean(firstName)}.${clean(lastName)}@${domain}`;
+}
+
+function scoreLead(company,sector,region){
+  let s=0;
+  if(company.size>=50&&company.size<=200)s+=25;else if(company.size<50)s+=12;else s+=18;
+  const highValue=['finance','sante','tech','immobilier'];
+  if(highValue.includes(sector))s+=30;else s+=20;
+  s+=Math.floor(Math.random()*25)+5;
+  const topRegions=['geneve','lausanne','paris','lyon'];
+  if(topRegions.includes(region))s+=20;else s+=12;
+  return Math.min(100,s);
+}
+
+function signalLevel(score){
+  if(score>=80)return{label:'Fort',cls:'signal-high',icon:'🟢'};
+  if(score>=60)return{label:'Moyen',cls:'signal-med',icon:'🟡'};
+  return{label:'Faible',cls:'signal-low',icon:'🔴'};
+}
+
+function scoreClass(score){if(score>=80)return'hot';if(score>=60)return'warm';return'cold'}
+
+function generateEmailContent(contact,company,signal,sector){
+  const sectorPitch={comptable:"optimiser vos processus comptables",avocat:"moderniser votre gestion cabinet",sante:"digitaliser votre parcours patient",immobilier:"booster votre portefeuille mandats",tech:"accélérer votre croissance",rh:"automatiser votre recrutement",btp:"gérer vos chantiers plus efficacement",marketing:"générer plus de leads pour vos clients",restaurant:"attirer plus de couverts",formation:"développer votre audience formation"};
+  const pitch=sectorPitch[sector]||"développer votre activité";
+  return `Bonjour ${contact.name},\n\nJ'ai remarqué que ${company.name} ${signal.toLowerCase()} — c'est souvent le signe d'un moment stratégique pour ${pitch}.\n\nSocialPulse aide des entreprises comme la vôtre à identifier et convertir de nouveaux prospects B2B automatiquement.\n\nUn échange de 15 minutes pour voir si ça match ?\n\nCordialement,\nL'équipe SocialPulse`;
+}
+
+async function runPipeline(){
+  if(isRunning)return;
+  isRunning=true;
+  const btn=document.getElementById('runPipeline');
+  btn.disabled=true;btn.classList.add('running');btn.textContent='⏳ Pipeline en cours...';
+  setStatus('running');
+
+  const sector=document.getElementById('sector').value;
+  const region=document.getElementById('region').value;
+  const count=parseInt(document.getElementById('leadCount').value);
+  const data=DB[sector]||DB.comptable;
+
+  document.getElementById('consoleBody').innerHTML='';
+  document.getElementById('leadsGrid').innerHTML='';
+  document.getElementById('statsBar').style.display='none';
+  document.getElementById('costSection').style.display='none';
+  ['step-plan','step-scrap','step-exploit','step-facture'].forEach(s=>setStep(s,null));
+  ['arrow-1','arrow-2','arrow-3'].forEach(a=>setArrow(a,null));
+  setProgress(0);
+
+  const sectorNames={comptable:'Comptabilité / Fiduciaire',avocat:'Avocats / Juridique',sante:'Santé / Médical',immobilier:'Immobilier',tech:'SaaS / Tech',rh:'RH / Recrutement',btp:'BTP / Construction',marketing:'Agences Marketing',restaurant:'Restauration',formation:'Formation'};
+  const regionNames={geneve:'Genève',lausanne:'Lausanne',montreux:'Montreux',annecy:'Annecy (74)',lyon:'Lyon (69)',paris:'Paris (75)',neuchatel:'Neuchâtel',fribourg:'Fribourg'};
+
+  // ÉTAPE 1: PLAN
+  setStep('step-plan','active');setProgress(5);
+  log(`ÉTAPE 1: PLAN — Ciblage`,'action');
+  await sleep(400);
+  log(`Secteur: ${sectorNames[sector]} — ${regionNames[region]}`,'data');
+  await sleep(300);
+  log(`Objectif: ${count} leads qualifiés avec email personnalisé`,'data');
+  await sleep(300);
+  log(`Signaux d'achat identifiés: ${data.signals.length} patterns`,'action');
+  data.signals.forEach(s=>log(`  → ${s}`,'data'));
+  await sleep(400);
+  log(`✅ PLAN validé`,'success');
+  setStep('step-plan','completed');setArrow('arrow-1','active');setProgress(20);
+
+  // ÉTAPE 2: SCRAP
+  setStep('step-scrap','active');
+  await sleep(500);
+  log(`\nÉTAPE 2: SCRAP — Extraction ciblée`,'action');
+  await sleep(300);
+  log(`Google Maps Business Scraper...`,'action');
+  await sleep(800);
+  log(`Recherche: "${sectorNames[sector]}" + "${regionNames[region]}"`,'data');
+
+  const scrapedCompanies=[];
+  for(let i=0;i<Math.min(count,data.companies.length);i++){
+    await sleep(120+Math.random()*180);
+    const c=data.companies[i];
+    scrapedCompanies.push(c);
+    log(`  → ${c.name} (${c.size} employés, ${c.addr})`,'data');
+  }
+  await sleep(300);
+  log(`Annuaires professionnels complémentaires... ${Math.floor(count*0.4)} résultats`,'action');
+  await sleep(600);
+  log(`✅ ${scrapedCompanies.length} prospects scrapés — coût: $${(scrapedCompanies.length*0.05+scrapedCompanies.length*0.013).toFixed(2)}`,'success');
+  setStep('step-scrap','completed');setArrow('arrow-2','active');setProgress(45);
+
+  // ÉTAPE 3: EXPLOIT
+  setStep('step-exploit','active');
+  await sleep(500);
+  log(`\nÉTAPE 3: EXPLOIT — Enrichissement & Scoring`,'action');
+  await sleep(300);
+  log(`Contact Enricher (emails + décideurs)...`,'action');
+
+  const leads=[];
+  for(let i=0;i<scrapedCompanies.length;i++){
+    await sleep(150+Math.random()*120);
+    const c=scrapedCompanies[i];
+    const contact={name:data.contacts[i%data.contacts.length],title:data.titles[i%data.titles.length],email:generateEmail(data.contacts[i%data.contacts.length].split(' ')[0],data.contacts[i%data.contacts.length].split(' ').pop(),c.name)};
+    const score=scoreLead(c,sector,region);
+    const signal=data.signals[i%data.signals.length];
+    const sl=signalLevel(score);
+    leads.push({company:c,contact,score,signal,signalLevel:sl,sector,region});
+    log(`  → ${c.name}: ${contact.name} (${contact.title}) — Score: ${score} ${sl.icon}`,'data');
+  }
+
+  const qualified=leads.filter(l=>l.score>=60);
+  const hot=leads.filter(l=>l.score>=80);
+  await sleep(300);
+  log(`Scoring terminé: ${qualified.length}/${leads.length} qualifiés (seuil 60), ${hot.length} hot leads (80+)`,'success');
+
+  document.getElementById('statsBar').style.display='grid';
+  animateCounter('statScraped',leads.length);
+  animateCounter('statEnriched',leads.length-Math.floor(Math.random()*3));
+  animateCounter('statQualified',qualified.length);
+  animateCounter('statHot',hot.length);
+
+  setStep('step-exploit','completed');setArrow('arrow-3','active');setProgress(70);
+
+  // ÉTAPE 4: FACTURE
+  setStep('step-facture','active');
+  await sleep(500);
+  log(`\nÉTAPE 4: FACTURE — Génération des livrables`,'action');
+  await sleep(300);
+  log(`AI Writer: Rédaction emails d'approche personnalisés...`,'action');
+  await sleep(700);
+  log(`✅ ${qualified.length} lead cards générées`,'success');
+
+  const grid=document.getElementById('leadsGrid');
+  leads.sort((a,b)=>b.score-a.score);
+  for(let i=0;i<leads.length;i++){
+    await sleep(80);
+    renderLeadCard(grid,leads[i],i);
+  }
+
+  setStep('step-facture','completed');setProgress(100);
+
+  renderCosts(leads.length,qualified.length,hot.length);
+  document.getElementById('costSection').style.display='block';
+
+  log(`\n═══════════════════════════════════════`,'action');
+  log(`PIPELINE TERMINÉ en ${(Math.random()*2+1.5).toFixed(1)} minutes`,'success');
+  log(`${leads.length} prospects → ${qualified.length} qualifiés → ${hot.length} hot leads`,'success');
+  log(`Coût: ~$${(leads.length*0.08+1).toFixed(2)} par lead | ${hot.length} leads chauds prêts pour outreach`,'success');
+  log(`═══════════════════════════════════════`,'action');
+
+  setStatus('done');
+  btn.disabled=false;btn.classList.remove('running');btn.textContent='⚡ Relancer le Pipeline';
+  isRunning=false;
+}
+
+function renderLeadCard(grid,lead,idx){
+  const l=lead;
+  const card=document.createElement('div');
+  card.className='lead-card';
+  const emailContent=generateEmailContent(l.contact,l.company,l.signal,l.sector);
+  card.innerHTML=`
+    <div class="lead-header">
+      <div>
+        <div class="lead-company">${l.company.name}</div>
+        <div class="lead-industry">${l.company.size} employés — ${l.company.addr}</div>
+      </div>
+      <div class="lead-score ${scoreClass(l.score)}">${l.score}</div>
+    </div>
+    <div class="signal-badge ${l.signalLevel.cls}">${l.signalLevel.icon} Signal: ${l.signalLevel.label} — ${l.signal}</div>
+    <div class="lead-details">
+      <div class="detail"><strong>Contact</strong>${l.contact.name}</div>
+      <div class="detail"><strong>Titre</strong>${l.contact.title}</div>
+      <div class="detail"><strong>Email</strong>${l.contact.email}</div>
+      <div class="detail"><strong>Signal</strong>${l.signal.slice(0,35)}...</div>
+    </div>
+    <button class="btn-email" onclick="toggleEmail(this)">📧 Voir l'email d'approche</button>
+    <div class="email-preview">${emailContent.replace(/\n/g,'<br>')}</div>
+  `;
+  grid.appendChild(card);
+  setTimeout(()=>card.classList.add('visible'),50+idx*60);
+}
+
+function toggleEmail(btn){
+  const preview=btn.nextElementSibling;
+  preview.classList.toggle('open');
+  btn.textContent=preview.classList.contains('open')?'📧 Masquer l\'email':'📧 Voir l\'email d\'approche';
+}
+
+function renderCosts(total,qualified,hot){
+  const gmapCost=total*0.05;
+  const euroCost=total*0.013;
+  const enrichCost=total*0.02;
+  const liCost=total*0.04;
+  const aiCost=0.5;
+  const totalCost=gmapCost+euroCost+enrichCost+liCost+aiCost;
+  const costPerLead=(totalCost/qualified).toFixed(2);
+
+  const rows=[
+    ['Discovery','Google Maps Scraper',gmapCost],
+    ['Discovery','Annuaires professionnels',euroCost],
+    ['Enrichment','Contact Enricher',enrichCost],
+    ['Enrichment','LinkedIn Profile',liCost],
+    ['Personnalisation','AI Writer',aiCost],
+  ];
+
+  const tbody=document.getElementById('costBody');
+  tbody.innerHTML='';
+  rows.forEach(r=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td class="cost-label">${r[0]}</td><td>${r[1]}</td><td class="cost-value cheap">$${r[2].toFixed(2)}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById('costTotal').innerHTML=`$${totalCost.toFixed(2)} <span class="roi">→ $${costPerLead}/lead qualifié (${qualified} leads)</span>`;
+}
+
+function animateCounter(id,target){
+  const el=document.getElementById(id);
+  let current=0;
+  const step=Math.max(1,Math.floor(target/20));
+  const interval=setInterval(()=>{
+    current+=step;
+    if(current>=target){current=target;clearInterval(interval)}
+    el.textContent=current;
+  },50);
+}
+
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1});
+document.querySelectorAll('.slide-up,.fw-card,.stat-card,.vertical-card').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

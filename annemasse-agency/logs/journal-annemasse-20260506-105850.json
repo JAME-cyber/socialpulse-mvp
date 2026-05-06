@@ -1,0 +1,747 @@
+{
+  "batch_id": "annemasse-20260506-105850",
+  "entries": [
+    {
+      "seq": 1,
+      "timestamp": "2026-05-06T10:58:50.697078",
+      "action": "orchestrator.init",
+      "actor": "system",
+      "details": {
+        "agents": 7,
+        "campaign": "annemasse-local-business",
+        "cities": [
+          "Annemasse",
+          "Gaillard",
+          "Ville-la-Grand",
+          "Saint-Julien-en-Genevois"
+        ]
+      },
+      "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "sha256:5d2dc0b999f6798f97c170ccb819475d4083fdf5828eafcd9d44c276ee4a0622"
+    },
+    {
+      "seq": 2,
+      "timestamp": "2026-05-06T10:59:59.294894",
+      "action": "scout.overpass",
+      "actor": "osm",
+      "details": {
+        "total_found": 2557,
+        "cost_usd": 0
+      },
+      "prev_hash": "sha256:5d2dc0b999f6798f97c170ccb819475d4083fdf5828eafcd9d44c276ee4a0622",
+      "hash": "sha256:6b286c968f9d97354a8c59825e4a300c4ae415aa294c109a716462b6e4c11142"
+    },
+    {
+      "seq": 3,
+      "timestamp": "2026-05-06T10:59:59.655786",
+      "action": "scout.complete",
+      "actor": "system",
+      "details": {
+        "total_raw": 2557,
+        "unique": 2382,
+        "new_in_queue": 2382
+      },
+      "prev_hash": "sha256:6b286c968f9d97354a8c59825e4a300c4ae415aa294c109a716462b6e4c11142",
+      "hash": "sha256:7692989d5877293d3bb2e8c43b63e07488e1444f2a44f21a7e0214eb5ab5d6bc"
+    },
+    {
+      "seq": 4,
+      "timestamp": "2026-05-06T11:00:12.262129",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "llm"
+      },
+      "lead": "Café de la Réunion",
+      "prev_hash": "sha256:7692989d5877293d3bb2e8c43b63e07488e1444f2a44f21a7e0214eb5ab5d6bc",
+      "hash": "sha256:f51d319415cca025775de3931b3eb93a7d856d9a3fe32134118566b417108f9d"
+    },
+    {
+      "seq": 5,
+      "timestamp": "2026-05-06T11:00:20.158062",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "llm"
+      },
+      "lead": "As de Pique",
+      "prev_hash": "sha256:f51d319415cca025775de3931b3eb93a7d856d9a3fe32134118566b417108f9d",
+      "hash": "sha256:09c19111a9e9648c072c96557ba9011fcc42a25b2a4b16ce59489f67245aff53"
+    },
+    {
+      "seq": 6,
+      "timestamp": "2026-05-06T11:00:25.908555",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "llm"
+      },
+      "lead": "Restaurant du Tennis",
+      "prev_hash": "sha256:09c19111a9e9648c072c96557ba9011fcc42a25b2a4b16ce59489f67245aff53",
+      "hash": "sha256:71457281a0c356c9e0c6d0a55017a144c595b4d13c194f75ced595077a129a5e"
+    },
+    {
+      "seq": 7,
+      "timestamp": "2026-05-06T11:00:34.587505",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "llm"
+      },
+      "lead": "I Sapori",
+      "prev_hash": "sha256:71457281a0c356c9e0c6d0a55017a144c595b4d13c194f75ced595077a129a5e",
+      "hash": "sha256:19aaa6b5094531114ff5920b0d73f7b35e5cd06cbe8b6c68bd8e3596f130378c"
+    },
+    {
+      "seq": 8,
+      "timestamp": "2026-05-06T11:00:43.590845",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "llm"
+      },
+      "lead": "La Colombière",
+      "prev_hash": "sha256:19aaa6b5094531114ff5920b0d73f7b35e5cd06cbe8b6c68bd8e3596f130378c",
+      "hash": "sha256:9210d3a612ae8b55156d4c07146536f5777d383e0d710ab995d8c34147899dab"
+    },
+    {
+      "seq": 9,
+      "timestamp": "2026-05-06T11:00:43.591576",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Buffalo Grill",
+      "prev_hash": "sha256:9210d3a612ae8b55156d4c07146536f5777d383e0d710ab995d8c34147899dab",
+      "hash": "sha256:9918dbe7e95f1d7b8c8533a8b08f453dbc0b1babfacd4dffdc91004b20e6cafa"
+    },
+    {
+      "seq": 10,
+      "timestamp": "2026-05-06T11:00:43.592516",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Marina Mezze",
+      "prev_hash": "sha256:9918dbe7e95f1d7b8c8533a8b08f453dbc0b1babfacd4dffdc91004b20e6cafa",
+      "hash": "sha256:4f60fc6bd15fa1dcb064a8598fc985e058462febefe10fff91aa31ec57cad4ca"
+    },
+    {
+      "seq": 11,
+      "timestamp": "2026-05-06T11:00:43.593087",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "La petite Vendée",
+      "prev_hash": "sha256:4f60fc6bd15fa1dcb064a8598fc985e058462febefe10fff91aa31ec57cad4ca",
+      "hash": "sha256:eb90987b55831131cc9dc61d57e513d1530d3f6a18fa86c9840e3e585e244406"
+    },
+    {
+      "seq": 12,
+      "timestamp": "2026-05-06T11:00:43.593732",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Tennis Club de Lancy",
+      "prev_hash": "sha256:eb90987b55831131cc9dc61d57e513d1530d3f6a18fa86c9840e3e585e244406",
+      "hash": "sha256:dc98745f3ff76316e124e7da2ad50c95d38a278915094eda75014ed0abaf14a5"
+    },
+    {
+      "seq": 13,
+      "timestamp": "2026-05-06T11:00:43.594488",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Il Vesuvio",
+      "prev_hash": "sha256:dc98745f3ff76316e124e7da2ad50c95d38a278915094eda75014ed0abaf14a5",
+      "hash": "sha256:bde668fafc3a48f65520a2ee1bd041ac7312ae8d264b1fac10ac864b9a5d9c58"
+    },
+    {
+      "seq": 14,
+      "timestamp": "2026-05-06T11:00:43.595541",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Le Vieux-Vernier",
+      "prev_hash": "sha256:bde668fafc3a48f65520a2ee1bd041ac7312ae8d264b1fac10ac864b9a5d9c58",
+      "hash": "sha256:b62b459575839085af7e991348912efa787e6251f03534581036369397344b96"
+    },
+    {
+      "seq": 15,
+      "timestamp": "2026-05-06T11:00:43.596167",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Auberge de la Mairie",
+      "prev_hash": "sha256:b62b459575839085af7e991348912efa787e6251f03534581036369397344b96",
+      "hash": "sha256:f5bfd8df8dc0cdaf2701b6aec42bb37f409c27b6fbad19ca3fb88c1fe2e2c47e"
+    },
+    {
+      "seq": 16,
+      "timestamp": "2026-05-06T11:00:43.596807",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Café de l'Etoile",
+      "prev_hash": "sha256:f5bfd8df8dc0cdaf2701b6aec42bb37f409c27b6fbad19ca3fb88c1fe2e2c47e",
+      "hash": "sha256:893c6b88bb98aa1493de9078f1af3d29ddd85c4d3b0868fa5dc2bb0e939e1624"
+    },
+    {
+      "seq": 17,
+      "timestamp": "2026-05-06T11:00:43.598626",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Il Caminetto",
+      "prev_hash": "sha256:893c6b88bb98aa1493de9078f1af3d29ddd85c4d3b0868fa5dc2bb0e939e1624",
+      "hash": "sha256:d6dbb8255a0b4c72ad6ae2880c45ecc8cb4bc55f4c3065f1b0742f45d3289aaf"
+    },
+    {
+      "seq": 18,
+      "timestamp": "2026-05-06T11:00:43.600053",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Pizza Party",
+      "prev_hash": "sha256:d6dbb8255a0b4c72ad6ae2880c45ecc8cb4bc55f4c3065f1b0742f45d3289aaf",
+      "hash": "sha256:cc82f515b6813ae089b2210cf47e79837c49c0577f069da0e55e89f45a9bb201"
+    },
+    {
+      "seq": 19,
+      "timestamp": "2026-05-06T11:00:43.601330",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Auberge Communale de Satigny",
+      "prev_hash": "sha256:cc82f515b6813ae089b2210cf47e79837c49c0577f069da0e55e89f45a9bb201",
+      "hash": "sha256:4fdc3474e3759af7fe401f29bc94bf0958014c8dc3c31e09dec47139e4c841e3"
+    },
+    {
+      "seq": 20,
+      "timestamp": "2026-05-06T11:00:43.602732",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Pizzeria de La Place",
+      "prev_hash": "sha256:4fdc3474e3759af7fe401f29bc94bf0958014c8dc3c31e09dec47139e4c841e3",
+      "hash": "sha256:89557fdca919456c2c8a8567756a4da697a73f0ee18b54aa513ad6649be75dc6"
+    },
+    {
+      "seq": 21,
+      "timestamp": "2026-05-06T11:00:43.604028",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Le Point du Jour",
+      "prev_hash": "sha256:89557fdca919456c2c8a8567756a4da697a73f0ee18b54aa513ad6649be75dc6",
+      "hash": "sha256:16aa6a18f8fdaae2f8ad9e967526ff690ac2fc35c1978d31c27122418d83b367"
+    },
+    {
+      "seq": 22,
+      "timestamp": "2026-05-06T11:00:43.605522",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Pizzeria les Tilleuls",
+      "prev_hash": "sha256:16aa6a18f8fdaae2f8ad9e967526ff690ac2fc35c1978d31c27122418d83b367",
+      "hash": "sha256:da277f6926debbd769d0a3dc0c5b0fb808fe54274c2ab1b2aec1289a7a85c085"
+    },
+    {
+      "seq": 23,
+      "timestamp": "2026-05-06T11:00:43.606912",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "La Belotte",
+      "prev_hash": "sha256:da277f6926debbd769d0a3dc0c5b0fb808fe54274c2ab1b2aec1289a7a85c085",
+      "hash": "sha256:f37e1f03e353a815d2384a5574316690673c41f65f0022200755ea2a8f528e70"
+    },
+    {
+      "seq": 24,
+      "timestamp": "2026-05-06T11:00:43.608327",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Pizza Bella",
+      "prev_hash": "sha256:f37e1f03e353a815d2384a5574316690673c41f65f0022200755ea2a8f528e70",
+      "hash": "sha256:8945cca1d37006318f31f6e7ee4e9176490fde78c5bca2e4a09ff7360c38d949"
+    },
+    {
+      "seq": 25,
+      "timestamp": "2026-05-06T11:00:43.609559",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Brasserie Lipp",
+      "prev_hash": "sha256:8945cca1d37006318f31f6e7ee4e9176490fde78c5bca2e4a09ff7360c38d949",
+      "hash": "sha256:9c59c52a46ac948c573ce3e8227b728ad1cea49ded54cc25a0c4eba95a2cd451"
+    },
+    {
+      "seq": 26,
+      "timestamp": "2026-05-06T11:00:43.610564",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Gilles Desplanches",
+      "prev_hash": "sha256:9c59c52a46ac948c573ce3e8227b728ad1cea49ded54cc25a0c4eba95a2cd451",
+      "hash": "sha256:9ebe9208acabc736646147d4dbe67446934a549d9da9df135e58543f3f2ce75c"
+    },
+    {
+      "seq": 27,
+      "timestamp": "2026-05-06T11:00:43.612023",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Al Amir",
+      "prev_hash": "sha256:9ebe9208acabc736646147d4dbe67446934a549d9da9df135e58543f3f2ce75c",
+      "hash": "sha256:a47c6e3b4f008e04cd3c40636a9a00d2aabdaccb207735a0c6b653993f3c4eb7"
+    },
+    {
+      "seq": 28,
+      "timestamp": "2026-05-06T11:00:43.613025",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Hungky",
+      "prev_hash": "sha256:a47c6e3b4f008e04cd3c40636a9a00d2aabdaccb207735a0c6b653993f3c4eb7",
+      "hash": "sha256:6ba849f1bfc2fb77232a1ae368ae6d8aa6e3b6b08068b96a4c2e1b98e7bacd84"
+    },
+    {
+      "seq": 29,
+      "timestamp": "2026-05-06T11:00:43.614378",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "El Mektoub",
+      "prev_hash": "sha256:6ba849f1bfc2fb77232a1ae368ae6d8aa6e3b6b08068b96a4c2e1b98e7bacd84",
+      "hash": "sha256:3acdbbe5349ef6fb9a95fdba43e1dc0f10da9ec5c0923764fd72c74f27ec609f"
+    },
+    {
+      "seq": 30,
+      "timestamp": "2026-05-06T11:00:43.617320",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Maison Açai",
+      "prev_hash": "sha256:3acdbbe5349ef6fb9a95fdba43e1dc0f10da9ec5c0923764fd72c74f27ec609f",
+      "hash": "sha256:ed9c29d8f7b360af86740b8ac9346e105858bf0ccfe5736eb65d421749407d4d"
+    },
+    {
+      "seq": 31,
+      "timestamp": "2026-05-06T11:00:43.618974",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "La Matze",
+      "prev_hash": "sha256:ed9c29d8f7b360af86740b8ac9346e105858bf0ccfe5736eb65d421749407d4d",
+      "hash": "sha256:dff2261239717665f474d5a662ef5b89449928f807492658fc65d5cfc6a2424a"
+    },
+    {
+      "seq": 32,
+      "timestamp": "2026-05-06T11:00:43.620125",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Brasserie Lamartine",
+      "prev_hash": "sha256:dff2261239717665f474d5a662ef5b89449928f807492658fc65d5cfc6a2424a",
+      "hash": "sha256:3a96a9db037f2d754f3b4ade3dd7888471742e6b8dff2d8a9c9fd8761f083ab1"
+    },
+    {
+      "seq": 33,
+      "timestamp": "2026-05-06T11:00:43.621106",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "local",
+      "details": {
+        "score": 82,
+        "diagnosis_method": "template"
+      },
+      "lead": "Restaurant Le Dorian",
+      "prev_hash": "sha256:3a96a9db037f2d754f3b4ade3dd7888471742e6b8dff2d8a9c9fd8761f083ab1",
+      "hash": "sha256:522b355be503da400a9ccb25479fc834ec9142dbb1ace7058dbef029b687c628"
+    },
+    {
+      "seq": 34,
+      "timestamp": "2026-05-06T11:00:43.929253",
+      "action": "builder.landing_page",
+      "actor": "local",
+      "details": {
+        "client": "café-de-la-réunion",
+        "path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/café-de-la-réunion/index.html",
+        "html_size": 3334
+      },
+      "lead": "Café de la Réunion",
+      "prev_hash": "sha256:522b355be503da400a9ccb25479fc834ec9142dbb1ace7058dbef029b687c628",
+      "hash": "sha256:2a5ebcc2cb21432f08b63e280743f9450537ec80ecc447d842c5f0e893ff0e0f"
+    },
+    {
+      "seq": 35,
+      "timestamp": "2026-05-06T11:00:43.931067",
+      "action": "builder.landing_page",
+      "actor": "local",
+      "details": {
+        "client": "as-de-pique",
+        "path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/as-de-pique/index.html",
+        "html_size": 3317
+      },
+      "lead": "As de Pique",
+      "prev_hash": "sha256:2a5ebcc2cb21432f08b63e280743f9450537ec80ecc447d842c5f0e893ff0e0f",
+      "hash": "sha256:34747f55dc5b69012a1387d034a3fa1456219d4a85dd9570e9b3f71b3b30bf81"
+    },
+    {
+      "seq": 36,
+      "timestamp": "2026-05-06T11:00:43.932680",
+      "action": "builder.landing_page",
+      "actor": "local",
+      "details": {
+        "client": "restaurant-du-tennis",
+        "path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/restaurant-du-tennis/index.html",
+        "html_size": 3336
+      },
+      "lead": "Restaurant du Tennis",
+      "prev_hash": "sha256:34747f55dc5b69012a1387d034a3fa1456219d4a85dd9570e9b3f71b3b30bf81",
+      "hash": "sha256:c76637bc0645d37236e99ca996db2ed380b7b40ea7a80b30bf6b3d115718ecbd"
+    },
+    {
+      "seq": 37,
+      "timestamp": "2026-05-06T11:00:43.934038",
+      "action": "builder.landing_page",
+      "actor": "local",
+      "details": {
+        "client": "i-sapori",
+        "path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/i-sapori/index.html",
+        "html_size": 3311
+      },
+      "lead": "I Sapori",
+      "prev_hash": "sha256:c76637bc0645d37236e99ca996db2ed380b7b40ea7a80b30bf6b3d115718ecbd",
+      "hash": "sha256:b04cf358361ce2c27f319c3c059a46a9fe2f84ff8ad7c5b85edca146cfaad2b2"
+    },
+    {
+      "seq": 38,
+      "timestamp": "2026-05-06T11:00:43.935360",
+      "action": "builder.landing_page",
+      "actor": "local",
+      "details": {
+        "client": "la-colombière",
+        "path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/la-colombière/index.html",
+        "html_size": 3319
+      },
+      "lead": "La Colombière",
+      "prev_hash": "sha256:b04cf358361ce2c27f319c3c059a46a9fe2f84ff8ad7c5b85edca146cfaad2b2",
+      "hash": "sha256:6105d64c3bcf5799f015d0a65fd757ed084d1c86d7fda1bb00bdd02cbcc8cd46"
+    },
+    {
+      "seq": 39,
+      "timestamp": "2026-05-06T11:00:48.884677",
+      "action": "filmer.video",
+      "actor": "hyperframe+ffmpeg",
+      "details": {
+        "html_path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/café-de-la-réunion/video.html",
+        "video_path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/café-de-la-réunion/video.html",
+        "format": "1080x1920",
+        "duration": "10s"
+      },
+      "lead": "Café de la Réunion",
+      "prev_hash": "sha256:6105d64c3bcf5799f015d0a65fd757ed084d1c86d7fda1bb00bdd02cbcc8cd46",
+      "hash": "sha256:8a03c530d64920ad35c9dfb81b6590ccbce9ba45fc32dae456702371f68ef38b"
+    },
+    {
+      "seq": 40,
+      "timestamp": "2026-05-06T11:00:53.019232",
+      "action": "filmer.video",
+      "actor": "hyperframe+ffmpeg",
+      "details": {
+        "html_path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/as-de-pique/video.html",
+        "video_path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/as-de-pique/video.html",
+        "format": "1080x1920",
+        "duration": "10s"
+      },
+      "lead": "As de Pique",
+      "prev_hash": "sha256:8a03c530d64920ad35c9dfb81b6590ccbce9ba45fc32dae456702371f68ef38b",
+      "hash": "sha256:52ed9196efa1134c5ad642e3039f92a4f0603fd82f9c37e4052f9b658d075eb1"
+    },
+    {
+      "seq": 41,
+      "timestamp": "2026-05-06T11:00:57.535843",
+      "action": "filmer.video",
+      "actor": "hyperframe+ffmpeg",
+      "details": {
+        "html_path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/restaurant-du-tennis/video.html",
+        "video_path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/restaurant-du-tennis/video.html",
+        "format": "1080x1920",
+        "duration": "10s"
+      },
+      "lead": "Restaurant du Tennis",
+      "prev_hash": "sha256:52ed9196efa1134c5ad642e3039f92a4f0603fd82f9c37e4052f9b658d075eb1",
+      "hash": "sha256:7c931713c1d4ce97eff33fe21198abbc7befc0da4731a1d8a566e573642cff55"
+    },
+    {
+      "seq": 42,
+      "timestamp": "2026-05-06T11:01:01.633886",
+      "action": "filmer.video",
+      "actor": "hyperframe+ffmpeg",
+      "details": {
+        "html_path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/i-sapori/video.html",
+        "video_path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/i-sapori/video.html",
+        "format": "1080x1920",
+        "duration": "10s"
+      },
+      "lead": "I Sapori",
+      "prev_hash": "sha256:7c931713c1d4ce97eff33fe21198abbc7befc0da4731a1d8a566e573642cff55",
+      "hash": "sha256:b20aca69f0676fb1a22e2d629076b466f6f65feec72dc5dd333ed2808cd4a8d3"
+    },
+    {
+      "seq": 43,
+      "timestamp": "2026-05-06T11:01:05.876237",
+      "action": "filmer.video",
+      "actor": "hyperframe+ffmpeg",
+      "details": {
+        "html_path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/la-colombière/video.html",
+        "video_path": "/home/tars/socialpulse-mvp/annemasse-agency/clients/la-colombière/video.html",
+        "format": "1080x1920",
+        "duration": "10s"
+      },
+      "lead": "La Colombière",
+      "prev_hash": "sha256:b20aca69f0676fb1a22e2d629076b466f6f65feec72dc5dd333ed2808cd4a8d3",
+      "hash": "sha256:5123a1b4f50e7cb985784dd3b544c8b7e366d116b6f9434a0ab0857d1748d8ef"
+    },
+    {
+      "seq": 44,
+      "timestamp": "2026-05-06T11:01:06.139209",
+      "action": "pitcher.prepare",
+      "actor": "instagram",
+      "details": {
+        "channel": "instagram",
+        "message_length": 190,
+        "has_opt_out": true
+      },
+      "lead": "Café de la Réunion",
+      "prev_hash": "sha256:5123a1b4f50e7cb985784dd3b544c8b7e366d116b6f9434a0ab0857d1748d8ef",
+      "hash": "sha256:42434237e00167edce44bb2038f1ad8c5f3659e6cb1bf92480c66e5843620867"
+    },
+    {
+      "seq": 45,
+      "timestamp": "2026-05-06T11:01:06.141476",
+      "action": "pitcher.prepare",
+      "actor": "instagram",
+      "details": {
+        "channel": "instagram",
+        "message_length": 183,
+        "has_opt_out": true
+      },
+      "lead": "As de Pique",
+      "prev_hash": "sha256:42434237e00167edce44bb2038f1ad8c5f3659e6cb1bf92480c66e5843620867",
+      "hash": "sha256:9f04f774e386e8c45705573b8abf1c893254bc69e42edbbf08ca433696810ba4"
+    },
+    {
+      "seq": 46,
+      "timestamp": "2026-05-06T11:01:06.142851",
+      "action": "pitcher.prepare",
+      "actor": "instagram",
+      "details": {
+        "channel": "instagram",
+        "message_length": 192,
+        "has_opt_out": true
+      },
+      "lead": "Restaurant du Tennis",
+      "prev_hash": "sha256:9f04f774e386e8c45705573b8abf1c893254bc69e42edbbf08ca433696810ba4",
+      "hash": "sha256:858f4d3b6f9d988fc983c2affc2f15a0e4f48577007e1dabe9935a171e864216"
+    },
+    {
+      "seq": 47,
+      "timestamp": "2026-05-06T11:01:06.144148",
+      "action": "pitcher.prepare",
+      "actor": "instagram",
+      "details": {
+        "channel": "instagram",
+        "message_length": 180,
+        "has_opt_out": true
+      },
+      "lead": "I Sapori",
+      "prev_hash": "sha256:858f4d3b6f9d988fc983c2affc2f15a0e4f48577007e1dabe9935a171e864216",
+      "hash": "sha256:264ee50591f95a4d9f209a4a0a51a8d2273cf5f5548ae4ce497dab2e4ee5e835"
+    },
+    {
+      "seq": 48,
+      "timestamp": "2026-05-06T11:01:06.145494",
+      "action": "pitcher.prepare",
+      "actor": "instagram",
+      "details": {
+        "channel": "instagram",
+        "message_length": 185,
+        "has_opt_out": true
+      },
+      "lead": "La Colombière",
+      "prev_hash": "sha256:264ee50591f95a4d9f209a4a0a51a8d2273cf5f5548ae4ce497dab2e4ee5e835",
+      "hash": "sha256:0c3cb304cc11b3b48bc655613ecb86b24cab637c23217e3eee6e6bbc1df4e147"
+    },
+    {
+      "seq": 49,
+      "timestamp": "2026-05-06T11:01:06.358900",
+      "action": "checker.eval",
+      "actor": "local",
+      "details": {
+        "passed": false,
+        "issues": [
+          "COMPLIANCE: pas de mention opt-out/STOP"
+        ],
+        "message_length": 190
+      },
+      "lead": "Café de la Réunion",
+      "prev_hash": "sha256:0c3cb304cc11b3b48bc655613ecb86b24cab637c23217e3eee6e6bbc1df4e147",
+      "hash": "sha256:6ed8f03af91d303aa9a1d6b10200461227bf8ae55c692e935373bdd730efe32b"
+    },
+    {
+      "seq": 50,
+      "timestamp": "2026-05-06T11:01:06.361720",
+      "action": "checker.eval",
+      "actor": "local",
+      "details": {
+        "passed": false,
+        "issues": [
+          "COMPLIANCE: pas de mention opt-out/STOP"
+        ],
+        "message_length": 183
+      },
+      "lead": "As de Pique",
+      "prev_hash": "sha256:6ed8f03af91d303aa9a1d6b10200461227bf8ae55c692e935373bdd730efe32b",
+      "hash": "sha256:fb2ddc92720fb8fcea5437d9c9de026bde7b7d19dd43da8e01f98dd925cb214a"
+    },
+    {
+      "seq": 51,
+      "timestamp": "2026-05-06T11:01:06.363990",
+      "action": "checker.eval",
+      "actor": "local",
+      "details": {
+        "passed": false,
+        "issues": [
+          "COMPLIANCE: pas de mention opt-out/STOP"
+        ],
+        "message_length": 192
+      },
+      "lead": "Restaurant du Tennis",
+      "prev_hash": "sha256:fb2ddc92720fb8fcea5437d9c9de026bde7b7d19dd43da8e01f98dd925cb214a",
+      "hash": "sha256:f724da98e2b2f4586767763924ee3de833188fe2a1be642e3a2fed909d65d8bf"
+    },
+    {
+      "seq": 52,
+      "timestamp": "2026-05-06T11:01:06.365880",
+      "action": "checker.eval",
+      "actor": "local",
+      "details": {
+        "passed": false,
+        "issues": [
+          "COMPLIANCE: pas de mention opt-out/STOP"
+        ],
+        "message_length": 180
+      },
+      "lead": "I Sapori",
+      "prev_hash": "sha256:f724da98e2b2f4586767763924ee3de833188fe2a1be642e3a2fed909d65d8bf",
+      "hash": "sha256:e13d62adad25f54d3f65114a611271ef40e6a8a6244e0185baf929f3ea597e06"
+    },
+    {
+      "seq": 53,
+      "timestamp": "2026-05-06T11:01:06.368114",
+      "action": "checker.eval",
+      "actor": "local",
+      "details": {
+        "passed": false,
+        "issues": [
+          "COMPLIANCE: pas de mention opt-out/STOP"
+        ],
+        "message_length": 185
+      },
+      "lead": "La Colombière",
+      "prev_hash": "sha256:e13d62adad25f54d3f65114a611271ef40e6a8a6244e0185baf929f3ea597e06",
+      "hash": "sha256:a7c1e6a30afb298f479b96fbc8072309b08df927ce7885c8979f9164839f8038"
+    },
+    {
+      "seq": 54,
+      "timestamp": "2026-05-06T11:01:06.580269",
+      "action": "mobile.report",
+      "actor": "local",
+      "details": {
+        "approved_count": 0,
+        "report_path": "/home/tars/socialpulse-mvp/annemasse-agency/output/mobile-report.json"
+      },
+      "prev_hash": "sha256:a7c1e6a30afb298f479b96fbc8072309b08df927ce7885c8979f9164839f8038",
+      "hash": "sha256:6219373501ea76f6077af0c9680c7036991e14fbd3d1fec832c435641272d2a9"
+    }
+  ],
+  "total": 54,
+  "updated": "2026-05-06T11:01:06.580336"
+}

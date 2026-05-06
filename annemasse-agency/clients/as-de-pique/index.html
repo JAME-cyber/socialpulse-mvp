@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>As de Pique — Restaurant à Annemasse</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#f59e0b;--bg:#1a1412;--text:#f0f2f5;--text2:rgba(240,242,245,.6)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px}
+.hero{text-align:center;max-width:600px}
+.icon{font-size:64px;margin-bottom:24px}
+h1{font-size:clamp(28px,5vw,42px);font-weight:900;letter-spacing:-1px;margin-bottom:8px;line-height:1.1}
+.sector{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--primary);margin-bottom:24px}
+.address{font-size:15px;color:var(--text2);margin-bottom:32px}
+.address span{color:var(--primary)}
+.rating{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 24px;margin-bottom:32px}
+.rating-num{font-size:32px;font-weight:900;color:var(--primary)}
+.rating-stars{color:#f59e0b;font-size:18px}
+.rating-count{font-size:13px;color:var(--text2)}
+.cta{background:var(--primary);color:#fff;border:none;padding:16px 40px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .2s}
+.cta:hover{transform:translateY(-2px)}
+.note{margin-top:16px;font-size:12px;color:var(--text2)}
+.phone{margin-top:24px;font-size:18px;font-weight:600;color:var(--primary)}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-top:40px;max-width:500px;width:100%}
+.feat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px;text-align:center}
+.feat-icon{font-size:24px;margin-bottom:8px}
+.feat-text{font-size:12px;font-weight:600;color:var(--text2)}
+footer{margin-top:48px;font-size:11px;color:var(--text2);text-align:center}
+footer a{color:var(--primary);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="icon">🍽️</div>
+  <h1>As de Pique</h1>
+  <div class="sector">Restaurant</div>
+  <div class="address">📍 <span>Place de l'Église, Annemasse</span></div>
+  <div class="rating">
+    <span class="rating-num">?</span>
+    <span class="rating-stars">⭐⭐⭐⭐</span>
+    <span class="rating-count">(0 avis)</span>
+  </div>
+  <button class="cta" onclick="window.location.href='tel:#'">📞 Nous contacter</button>
+  <div class="phone"></div>
+  <div class="note">Proposition de site vitrine — Établi à Annemasse (74)</div>
+</div>
+<div class="features">
+  <div class="feat"><div class="feat-icon">📱</div><div class="feat-text">Mobile-first</div></div>
+  <div class="feat"><div class="feat-icon">⚡</div><div class="feat-text">Rapide</div></div>
+  <div class="feat"><div class="feat-icon">🔍</div><div class="feat-text">SEO local</div></div>
+  <div class="feat"><div class="feat-icon">🗺️</div><div class="feat-text">Google Maps</div></div>
+</div>
+<footer>Proposé par <a href="#">SocialPulse</a> · Haute-Savoie · 2026</footer>
+</body>
+</html>

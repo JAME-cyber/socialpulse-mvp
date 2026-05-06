@@ -1,0 +1,285 @@
+{
+  "batch_id": "annemasse-20260506-105243",
+  "entries": [
+    {
+      "seq": 1,
+      "timestamp": "2026-05-06T10:52:43.609461",
+      "action": "orchestrator.init",
+      "actor": "system",
+      "details": {
+        "agents": 7,
+        "campaign": "annemasse-local-business",
+        "cities": [
+          "Annemasse",
+          "Gaillard",
+          "Ville-la-Grand",
+          "Saint-Julien-en-Genevois"
+        ]
+      },
+      "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "sha256:e776dd0791a3b3d8544a4efbc7682962f0a09f09f89b59e9b405002df9a18d94"
+    },
+    {
+      "seq": 2,
+      "timestamp": "2026-05-06T10:52:49.764642",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 80,
+        "breakdown": {
+          "website": 30,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": "Grande Rue, Saint-Julien-en-Genevois",
+          "total": 80
+        },
+        "diagnosis_word_count": 31
+      },
+      "lead": "Taj Mahal",
+      "prev_hash": "sha256:e776dd0791a3b3d8544a4efbc7682962f0a09f09f89b59e9b405002df9a18d94",
+      "hash": "sha256:60cc41757f834fc3e72883d039ebaffbbfcdc674561864ba912e52c51502d0da"
+    },
+    {
+      "seq": 3,
+      "timestamp": "2026-05-06T10:53:01.693369",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 80,
+        "breakdown": {
+          "website": 30,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": ", Gaillard",
+          "total": 80
+        },
+        "diagnosis_word_count": 33
+      },
+      "lead": "La Perle du Lac",
+      "prev_hash": "sha256:60cc41757f834fc3e72883d039ebaffbbfcdc674561864ba912e52c51502d0da",
+      "hash": "sha256:eb7e34a80798792b1d94bbed5e1f64d669376bcc8e6dbce90b8e9fe768b92e99"
+    },
+    {
+      "seq": 4,
+      "timestamp": "2026-05-06T10:53:25.791237",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 80,
+        "breakdown": {
+          "website": 30,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": ", Gaillard",
+          "total": 80
+        },
+        "diagnosis_word_count": 31
+      },
+      "lead": "Coop",
+      "prev_hash": "sha256:eb7e34a80798792b1d94bbed5e1f64d669376bcc8e6dbce90b8e9fe768b92e99",
+      "hash": "sha256:ebf05a16715c3c1589d7ff3f6b22f7d12a4a78a980c661bcfaae93a37ed03a9e"
+    },
+    {
+      "seq": 5,
+      "timestamp": "2026-05-06T10:53:32.412540",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 82,
+        "breakdown": {
+          "website": 30,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": "Chemin de Sous-Balme, Annemasse",
+          "total": 82
+        },
+        "diagnosis_word_count": 32
+      },
+      "lead": "Café de la Réunion",
+      "prev_hash": "sha256:ebf05a16715c3c1589d7ff3f6b22f7d12a4a78a980c661bcfaae93a37ed03a9e",
+      "hash": "sha256:5c3f8edaa4f9c9b14acccb0ab2eb08d8bcc094d50b3232825e0eb3e4f9dca1ff"
+    },
+    {
+      "seq": 6,
+      "timestamp": "2026-05-06T10:54:00.413103",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 82,
+        "breakdown": {
+          "website": 30,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": "Place de l'Église, Annemasse",
+          "total": 82
+        },
+        "diagnosis_word_count": 33
+      },
+      "lead": "As de Pique",
+      "prev_hash": "sha256:5c3f8edaa4f9c9b14acccb0ab2eb08d8bcc094d50b3232825e0eb3e4f9dca1ff",
+      "hash": "sha256:169827f1e6c46e6479adfe06206c4f08f4247400e29af7d42ba8bbec9e4373a9"
+    },
+    {
+      "seq": 7,
+      "timestamp": "2026-05-06T10:54:06.260690",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 56,
+        "breakdown": {
+          "website": 6,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": "Route de Chancy, Gaillard",
+          "total": 56
+        },
+        "diagnosis_word_count": 26
+      },
+      "lead": "Pizzeria des Ormeaux",
+      "prev_hash": "sha256:169827f1e6c46e6479adfe06206c4f08f4247400e29af7d42ba8bbec9e4373a9",
+      "hash": "sha256:dac9acf27e434a520289230f4955be8154941312db47f83cde9bdd053419c622"
+    },
+    {
+      "seq": 8,
+      "timestamp": "2026-05-06T10:54:11.912425",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 58,
+        "breakdown": {
+          "website": 6,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": "Grande Rue, Annemasse",
+          "total": 58
+        },
+        "diagnosis_word_count": 28
+      },
+      "lead": "La Table d'Angèle",
+      "prev_hash": "sha256:dac9acf27e434a520289230f4955be8154941312db47f83cde9bdd053419c622",
+      "hash": "sha256:7361f82f26b5d96be3d34dbea5116b89a0348c957544bb45670993c5dba60e3f"
+    },
+    {
+      "seq": 9,
+      "timestamp": "2026-05-06T10:54:18.438255",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 80,
+        "breakdown": {
+          "website": 30,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": ", Gaillard",
+          "total": 80
+        },
+        "diagnosis_word_count": 39
+      },
+      "lead": "Chez Lopez",
+      "prev_hash": "sha256:7361f82f26b5d96be3d34dbea5116b89a0348c957544bb45670993c5dba60e3f",
+      "hash": "sha256:54d66e1e5aaee23f2336fe5688e119d9e3d370f0ffbf6d2927638e39376bed91"
+    },
+    {
+      "seq": 10,
+      "timestamp": "2026-05-06T10:54:27.558306",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 82,
+        "breakdown": {
+          "website": 30,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": "Route de Frontenex, Annemasse",
+          "total": 82
+        },
+        "diagnosis_word_count": 41
+      },
+      "lead": "Restaurant du Tennis",
+      "prev_hash": "sha256:54d66e1e5aaee23f2336fe5688e119d9e3d370f0ffbf6d2927638e39376bed91",
+      "hash": "sha256:cb03a8c59ced43f0c7b48b3f15802c05736d3efe2041ecad4c8402b325f07226"
+    },
+    {
+      "seq": 11,
+      "timestamp": "2026-05-06T10:54:35.218030",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 56,
+        "breakdown": {
+          "website": 6,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": "Rue Sonnex, Gaillard",
+          "total": 56
+        },
+        "diagnosis_word_count": 26
+      },
+      "lead": "Chez Nina",
+      "prev_hash": "sha256:cb03a8c59ced43f0c7b48b3f15802c05736d3efe2041ecad4c8402b325f07226",
+      "hash": "sha256:45eb0fb91d1ff2f50f72c424ff730e271c62e12a026ea8092d492a91c89edec3"
+    },
+    {
+      "seq": 12,
+      "timestamp": "2026-05-06T10:54:41.946987",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 80,
+        "breakdown": {
+          "website": 30,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": ", Gaillard",
+          "total": 80
+        },
+        "diagnosis_word_count": 30
+      },
+      "lead": "Pizzeria le Pommier",
+      "prev_hash": "sha256:45eb0fb91d1ff2f50f72c424ff730e271c62e12a026ea8092d492a91c89edec3",
+      "hash": "sha256:5aaa6924506ab94db6ba4d2f032256f83d35c894bafe181b6f6f95c20d1fbc14"
+    },
+    {
+      "seq": 13,
+      "timestamp": "2026-05-06T10:55:26.819422",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 58,
+        "breakdown": {
+          "website": 6,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": "Rue du Lac, Annemasse",
+          "total": 58
+        },
+        "diagnosis_word_count": 38
+      },
+      "lead": "Da Paolo",
+      "prev_hash": "sha256:5aaa6924506ab94db6ba4d2f032256f83d35c894bafe181b6f6f95c20d1fbc14",
+      "hash": "sha256:c5152f30cf05f1a3b7cc84271d5eda7f132f8942327307c084e2199fb278295a"
+    },
+    {
+      "seq": 14,
+      "timestamp": "2026-05-06T10:55:38.075655",
+      "action": "diagnoser.score_and_diagnose",
+      "actor": "openrouter",
+      "details": {
+        "score": 80,
+        "breakdown": {
+          "website": 30,
+          "review_gap": "calculated",
+          "sector": "Restaurant",
+          "location": ", Gaillard",
+          "total": 80
+        },
+        "diagnosis_word_count": 34
+      },
+      "lead": "La Lanterne",
+      "prev_hash": "sha256:c5152f30cf05f1a3b7cc84271d5eda7f132f8942327307c084e2199fb278295a",
+      "hash": "sha256:9369e13e64bd8ef73f02cc81712505e8c74b98d64d4b1ae963b8c6e0895738f4"
+    }
+  ],
+  "total": 14,
+  "updated": "2026-05-06T10:55:38.075743"
+}

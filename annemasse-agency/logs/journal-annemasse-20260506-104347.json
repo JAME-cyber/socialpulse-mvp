@@ -1,0 +1,373 @@
+{
+  "batch_id": "annemasse-20260506-104347",
+  "entries": [
+    {
+      "seq": 1,
+      "timestamp": "2026-05-06T10:43:47.998959",
+      "action": "orchestrator.init",
+      "actor": "system",
+      "details": {
+        "agents": 7,
+        "campaign": "annemasse-local-business",
+        "cities": [
+          "Annemasse",
+          "Gaillard",
+          "Ville-la-Grand",
+          "Saint-Julien-en-Genevois"
+        ]
+      },
+      "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "sha256:107a8a00ab44decb5a130764430c8b134dd18fe42f42a9c18e2bcc8b56df23e0"
+    },
+    {
+      "seq": 2,
+      "timestamp": "2026-05-06T10:43:48.706717",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "restaurant Annemasse"
+      },
+      "prev_hash": "sha256:107a8a00ab44decb5a130764430c8b134dd18fe42f42a9c18e2bcc8b56df23e0",
+      "hash": "sha256:e7de5f836f78ae770bdc80bdd4e105b8a9af841e61b77654092c79d25bf6a72f"
+    },
+    {
+      "seq": 3,
+      "timestamp": "2026-05-06T10:43:48.813495",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "restaurant Gaillard"
+      },
+      "prev_hash": "sha256:e7de5f836f78ae770bdc80bdd4e105b8a9af841e61b77654092c79d25bf6a72f",
+      "hash": "sha256:aa33d11d3c4e88fe408ae8df41bad27703801db83e4bb85a21f592ce26a3c790"
+    },
+    {
+      "seq": 4,
+      "timestamp": "2026-05-06T10:43:48.918567",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "brasserie Ville-la-Grand"
+      },
+      "prev_hash": "sha256:aa33d11d3c4e88fe408ae8df41bad27703801db83e4bb85a21f592ce26a3c790",
+      "hash": "sha256:d015229e583b6d8b414c8b80fb8a3f62a00fa279fc886616915dcb3c2799f715"
+    },
+    {
+      "seq": 5,
+      "timestamp": "2026-05-06T10:43:49.052038",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "restaurant Saint-Julien-en-Genevois"
+      },
+      "prev_hash": "sha256:d015229e583b6d8b414c8b80fb8a3f62a00fa279fc886616915dcb3c2799f715",
+      "hash": "sha256:a163ccf2c12f97cabc3be97a55fb3627055e910d5aec8d691db9ba136eba2cce"
+    },
+    {
+      "seq": 6,
+      "timestamp": "2026-05-06T10:43:49.172640",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "salon coiffure Annemasse"
+      },
+      "prev_hash": "sha256:a163ccf2c12f97cabc3be97a55fb3627055e910d5aec8d691db9ba136eba2cce",
+      "hash": "sha256:1c59a0d8394b7cc91e2ed5f112e642ad6e026d74fd65f7140b2899019cca5ecc"
+    },
+    {
+      "seq": 7,
+      "timestamp": "2026-05-06T10:43:49.314303",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "coiffeur Gaillard"
+      },
+      "prev_hash": "sha256:1c59a0d8394b7cc91e2ed5f112e642ad6e026d74fd65f7140b2899019cca5ecc",
+      "hash": "sha256:398dc1c1789373f6d592bde0900724d448b87901aecb5e806373e886fd6b39c8"
+    },
+    {
+      "seq": 8,
+      "timestamp": "2026-05-06T10:43:49.424348",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "salon coiffure Saint-Julien"
+      },
+      "prev_hash": "sha256:398dc1c1789373f6d592bde0900724d448b87901aecb5e806373e886fd6b39c8",
+      "hash": "sha256:b71b8cf6d8f6cba3aa3e3a644e6a3ed763e0012aa0f78b2abd1cc304da0414c3"
+    },
+    {
+      "seq": 9,
+      "timestamp": "2026-05-06T10:43:49.529738",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "plombier Annemasse"
+      },
+      "prev_hash": "sha256:b71b8cf6d8f6cba3aa3e3a644e6a3ed763e0012aa0f78b2abd1cc304da0414c3",
+      "hash": "sha256:c20690217fd8fefaaf782a74032abd672bee4c453a561930c0bd91c876fdf9a1"
+    },
+    {
+      "seq": 10,
+      "timestamp": "2026-05-06T10:43:49.662656",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "chauffagiste Gaillard"
+      },
+      "prev_hash": "sha256:c20690217fd8fefaaf782a74032abd672bee4c453a561930c0bd91c876fdf9a1",
+      "hash": "sha256:f00d3a708b8b7839d30be92e4a26f2a4305d93c258317243ba0eff9e41240186"
+    },
+    {
+      "seq": 11,
+      "timestamp": "2026-05-06T10:43:49.768195",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "plombier Saint-Julien-en-Genevois"
+      },
+      "prev_hash": "sha256:f00d3a708b8b7839d30be92e4a26f2a4305d93c258317243ba0eff9e41240186",
+      "hash": "sha256:110628f60b24090a73f3874669b428f6796483104499785bfb5f80f67459f5e9"
+    },
+    {
+      "seq": 12,
+      "timestamp": "2026-05-06T10:43:49.879801",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "cabinet avocat Annemasse"
+      },
+      "prev_hash": "sha256:110628f60b24090a73f3874669b428f6796483104499785bfb5f80f67459f5e9",
+      "hash": "sha256:c0f579cca624e52ddd7d94a1e38181fdd2b03bd9d2c67ff722dcc85804deb175"
+    },
+    {
+      "seq": 13,
+      "timestamp": "2026-05-06T10:43:49.986823",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "avocat Gaillard"
+      },
+      "prev_hash": "sha256:c0f579cca624e52ddd7d94a1e38181fdd2b03bd9d2c67ff722dcc85804deb175",
+      "hash": "sha256:43dbb5509aa9ab196d7a0aab2b92498768bceecd02f40ee0035a673c469e1222"
+    },
+    {
+      "seq": 14,
+      "timestamp": "2026-05-06T10:43:50.103764",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "avocat Saint-Julien-en-Genevois"
+      },
+      "prev_hash": "sha256:43dbb5509aa9ab196d7a0aab2b92498768bceecd02f40ee0035a673c469e1222",
+      "hash": "sha256:98ca1422a46f4cba5db7dbb7c95c182101e3bed63958ba7e844a6140189cb349"
+    },
+    {
+      "seq": 15,
+      "timestamp": "2026-05-06T10:43:50.209675",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "agence immobilière Annemasse"
+      },
+      "prev_hash": "sha256:98ca1422a46f4cba5db7dbb7c95c182101e3bed63958ba7e844a6140189cb349",
+      "hash": "sha256:778d37862d465de7bf816356bc0f484bb4cfdf16e1a99ee588768f75697eec4b"
+    },
+    {
+      "seq": 16,
+      "timestamp": "2026-05-06T10:43:50.311886",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "agent immobilier Gaillard"
+      },
+      "prev_hash": "sha256:778d37862d465de7bf816356bc0f484bb4cfdf16e1a99ee588768f75697eec4b",
+      "hash": "sha256:e8ee922ab9edd0871c9ec1aaac62eac8dab7a5c22815240169484bf8475fe877"
+    },
+    {
+      "seq": 17,
+      "timestamp": "2026-05-06T10:43:50.416019",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "immobilier Saint-Julien"
+      },
+      "prev_hash": "sha256:e8ee922ab9edd0871c9ec1aaac62eac8dab7a5c22815240169484bf8475fe877",
+      "hash": "sha256:582bc8edb9dcead4cc6d8e78dd4b639ebc9aeb485ae509deda7a19e98d21002f"
+    },
+    {
+      "seq": 18,
+      "timestamp": "2026-05-06T10:43:50.520077",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "garage automobile Annemasse"
+      },
+      "prev_hash": "sha256:582bc8edb9dcead4cc6d8e78dd4b639ebc9aeb485ae509deda7a19e98d21002f",
+      "hash": "sha256:bc0ff973023597ee807932f51719dba77147e71060fe2b3d5049d33c3a9fa407"
+    },
+    {
+      "seq": 19,
+      "timestamp": "2026-05-06T10:43:50.626385",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "mécanicien Gaillard"
+      },
+      "prev_hash": "sha256:bc0ff973023597ee807932f51719dba77147e71060fe2b3d5049d33c3a9fa407",
+      "hash": "sha256:a5bc38594892990e1c2ffc1911d18c7ea17279d5f6c4b9f21c117a2f4a8ac95c"
+    },
+    {
+      "seq": 20,
+      "timestamp": "2026-05-06T10:43:50.732339",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "garage auto Saint-Julien"
+      },
+      "prev_hash": "sha256:a5bc38594892990e1c2ffc1911d18c7ea17279d5f6c4b9f21c117a2f4a8ac95c",
+      "hash": "sha256:712054d0bc5907b745e90e55e65326409b89a4c2e9d9dc00dfad251ffc77c286"
+    },
+    {
+      "seq": 21,
+      "timestamp": "2026-05-06T10:43:50.839633",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "expert comptable Annemasse"
+      },
+      "prev_hash": "sha256:712054d0bc5907b745e90e55e65326409b89a4c2e9d9dc00dfad251ffc77c286",
+      "hash": "sha256:f7e72c2057984e3cd3dce7585eaa141f071142f3faa5f367414bf0a4f0bc6df3"
+    },
+    {
+      "seq": 22,
+      "timestamp": "2026-05-06T10:43:50.948902",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "cabinet comptable Gaillard"
+      },
+      "prev_hash": "sha256:f7e72c2057984e3cd3dce7585eaa141f071142f3faa5f367414bf0a4f0bc6df3",
+      "hash": "sha256:bc464a97c2959dff637afb8363c86e96f7f4d64bc12ae1c82b6567d1f854e346"
+    },
+    {
+      "seq": 23,
+      "timestamp": "2026-05-06T10:43:51.097779",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "boulangerie Annemasse"
+      },
+      "prev_hash": "sha256:bc464a97c2959dff637afb8363c86e96f7f4d64bc12ae1c82b6567d1f854e346",
+      "hash": "sha256:e485ab09005f1ef6b6f43ecbd4d925e34ecb3b5b325b97d3a1de0f1d6bf74999"
+    },
+    {
+      "seq": 24,
+      "timestamp": "2026-05-06T10:43:51.201438",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "boulangerie Gaillard"
+      },
+      "prev_hash": "sha256:e485ab09005f1ef6b6f43ecbd4d925e34ecb3b5b325b97d3a1de0f1d6bf74999",
+      "hash": "sha256:7a894dbfa5de98a310dd4a2c9084916d9d0b831a46b031b343a82eb4328d635c"
+    },
+    {
+      "seq": 25,
+      "timestamp": "2026-05-06T10:43:51.306336",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "pâtisserie Ville-la-Grand"
+      },
+      "prev_hash": "sha256:7a894dbfa5de98a310dd4a2c9084916d9d0b831a46b031b343a82eb4328d635c",
+      "hash": "sha256:eab322b973b808bd821188a95c0c835dfa72630412c5ae03263695942b3e23db"
+    },
+    {
+      "seq": 26,
+      "timestamp": "2026-05-06T10:43:51.416434",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "kinésithérapeute Annemasse"
+      },
+      "prev_hash": "sha256:eab322b973b808bd821188a95c0c835dfa72630412c5ae03263695942b3e23db",
+      "hash": "sha256:be83c1e18e63014ceebbc652cef7ab50950b3be14826c23b0c3cabdffd40aeaa"
+    },
+    {
+      "seq": 27,
+      "timestamp": "2026-05-06T10:43:51.519445",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "ostéopathe Gaillard"
+      },
+      "prev_hash": "sha256:be83c1e18e63014ceebbc652cef7ab50950b3be14826c23b0c3cabdffd40aeaa",
+      "hash": "sha256:d6184a7fe27af39bc54a5e4b745a30c76264d42bd63e4eebe21e6c2752433447"
+    },
+    {
+      "seq": 28,
+      "timestamp": "2026-05-06T10:43:51.625564",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "kiné Saint-Julien"
+      },
+      "prev_hash": "sha256:d6184a7fe27af39bc54a5e4b745a30c76264d42bd63e4eebe21e6c2752433447",
+      "hash": "sha256:38e473978789c65d0c7f6ae6d0a55f3ee49db28ecce113c07caf1e9811e0ed8c"
+    },
+    {
+      "seq": 29,
+      "timestamp": "2026-05-06T10:43:51.735536",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "fleuriste Annemasse"
+      },
+      "prev_hash": "sha256:38e473978789c65d0c7f6ae6d0a55f3ee49db28ecce113c07caf1e9811e0ed8c",
+      "hash": "sha256:7bee45eb9ac8cf805ff0686b1993b308066ffbee5adbafc89faf6d52247cd1ad"
+    },
+    {
+      "seq": 30,
+      "timestamp": "2026-05-06T10:43:51.845212",
+      "action": "scout.error",
+      "actor": "apify",
+      "details": {
+        "error": "Actor with this name was not found",
+        "query": "fleuriste Gaillard"
+      },
+      "prev_hash": "sha256:7bee45eb9ac8cf805ff0686b1993b308066ffbee5adbafc89faf6d52247cd1ad",
+      "hash": "sha256:ddbb80fa4ba2609708451df67ece349b8ff980c472727bdc4c1ef4c540cfe97f"
+    }
+  ],
+  "total": 30,
+  "updated": "2026-05-06T10:43:51.845335"
+}

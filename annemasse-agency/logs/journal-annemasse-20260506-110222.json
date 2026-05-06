@@ -1,0 +1,25 @@
+{
+  "batch_id": "annemasse-20260506-110222",
+  "entries": [
+    {
+      "seq": 1,
+      "timestamp": "2026-05-06T11:02:22.165450",
+      "action": "orchestrator.init",
+      "actor": "system",
+      "details": {
+        "agents": 7,
+        "campaign": "annemasse-local-business",
+        "cities": [
+          "Annemasse",
+          "Gaillard",
+          "Ville-la-Grand",
+          "Saint-Julien-en-Genevois"
+        ]
+      },
+      "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "sha256:7aabb83e3d2b19ef2f9b8b80658d1e501d2c6e80dd0aad147b9285f08b465744"
+    }
+  ],
+  "total": 1,
+  "updated": "2026-05-06T11:02:22.165542"
+}

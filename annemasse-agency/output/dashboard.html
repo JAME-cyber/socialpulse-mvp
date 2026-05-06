@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SocialPulse Annemasse — Dashboard</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e17;--bg2:#111827;--bg3:#1a2332;--border:rgba(255,255,255,.06);--text:#f0f2f5;--text2:rgba(240,242,245,.6);--pulse:#6366f1;--pulse2:#818cf8;--green:#10b981;--amber:#f59e0b;--red:#ef4444}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);padding:40px 24px;max-width:1400px;margin:0 auto}
+h1{font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:8px}
+h1 .accent{color:var(--pulse2)}
+.subtitle{font-size:14px;color:var(--text2);margin-bottom:40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:40px}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px}
+.card-label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-bottom:8px}
+.card-value{font-size:36px;font-weight:900;letter-spacing:-1px}
+.card-value.green{color:var(--green)}
+.card-value.amber{color:var(--amber)}
+.card-value.pulse{color:var(--pulse2)}
+.card-sub{font-size:11px;color:var(--text2);margin-top:4px}
+section{margin-bottom:40px}
+h2{font-size:20px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+table{width:100%;border-collapse:collapse;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+th{text-align:left;padding:12px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text2);background:rgba(255,255,255,.03);border-bottom:1px solid var(--border)}
+td{padding:10px 16px;font-size:13px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+tr:hover{background:rgba(99,102,241,.05)}
+.pct{font-size:11px;color:var(--text2)}
+.hot{color:var(--green);font-weight:800}
+.score{color:var(--pulse2);font-weight:800;font-size:15px}
+.status{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700}
+.status.discovered{background:rgba(99,102,241,.1);color:var(--pulse2)}
+.status.scored{background:rgba(245,158,11,.1);color:var(--amber)}
+.status.diagnosed{background:rgba(16,185,129,.1);color:var(--green)}
+.status.approved{background:rgba(16,185,129,.2);color:var(--green)}
+.status.flagged{background:rgba(239,68,68,.1);color:var(--red)}
+.status.gele{background:rgba(239,68,68,.15);color:var(--red)}
+.name{font-weight:700}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:768px){.two-col{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+.channel-bar{display:flex;gap:8px;margin-top:16px}
+.channel-pill{padding:6px 14px;border-radius:8px;font-size:12px;font-weight:700;background:rgba(255,255,255,.05);border:1px solid var(--border)}
+.channel-pill .num{margin-left:4px;color:var(--pulse2)}
+.cost{margin-top:8px;font-size:12px;color:var(--green)}
+footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;color:var(--text2)}
+</style>
+</head>
+<body>
+
+<h1>SocialPulse <span class="accent">Annemasse</span></h1>
+<div class="subtitle">🗺️ Agglomération Annemasse · Gaillard · Ville-la-Grand · Saint-Julien | Haute-Savoie (74)</div>
+
+<div class="grid">
+  <div class="card">
+    <div class="card-label">Leads découverts</div>
+    <div class="card-value">2,382</div>
+    <div class="card-sub">OpenStreetMap · Overpass API</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Sans site web</div>
+    <div class="card-value amber">1,634</div>
+    <div class="card-sub">68% des PME · Top prospects</div>
+  </div>
+  <div class="card">
+    <div class="card-label">HOT leads (80+)</div>
+    <div class="card-value green">1,272</div>
+    <div class="card-sub">Prêts à prospector</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Coût pipeline</div>
+    <div class="card-value pulse">$0</div>
+    <div class="card-sub">100% open-source · vs $480/mois tweet</div>
+  </div>
+</div>
+
+<div class="channel-bar">
+  <div class="channel-pill">📸 Instagram <span class="num">1244</span></div>
+  <div class="channel-pill">📧 Email <span class="num">8</span></div>
+  <div class="channel-pill">📱 SMS <span class="num">5</span></div>
+  <div class="channel-pill">💼 LinkedIn <span class="num">15</span></div>
+</div>
+
+<section>
+<h2>📊 Matrice Secteur × Opportunité</h2>
+<table>
+  <tr><th>Secteur</th><th>Total PME</th><th>Sans site</th><th>HOT</th><th>Canal</th></tr>
+  
+        <tr>
+            <td>🍽️ Restaurant</td>
+            <td>1509</td>
+            <td>999 <span class="pct">(66%)</span></td>
+            <td><span class="hot">984</span> <span class="pct">(65%)</span></td>
+            <td>📸 instagram</td>
+        </tr>
+        <tr>
+            <td>💇 Salon de coiffure</td>
+            <td>302</td>
+            <td>262 <span class="pct">(86%)</span></td>
+            <td><span class="hot">260</span> <span class="pct">(86%)</span></td>
+            <td>📸 instagram</td>
+        </tr>
+        <tr>
+            <td>🏠 Immobilier</td>
+            <td>65</td>
+            <td>27 <span class="pct">(41%)</span></td>
+            <td><span class="hot">15</span> <span class="pct">(23%)</span></td>
+            <td>💼 linkedin</td>
+        </tr>
+        <tr>
+            <td>⚖️ Avocat</td>
+            <td>12</td>
+            <td>7 <span class="pct">(58%)</span></td>
+            <td><span class="hot">5</span> <span class="pct">(41%)</span></td>
+            <td>📧 email</td>
+        </tr>
+        <tr>
+            <td>🔧 Plombier / Chauffagiste</td>
+            <td>9</td>
+            <td>5 <span class="pct">(55%)</span></td>
+            <td><span class="hot">5</span> <span class="pct">(55%)</span></td>
+            <td>📱 sms</td>
+        </tr>
+        <tr>
+            <td>📊 Cabinet comptable</td>
+            <td>12</td>
+            <td>10 <span class="pct">(83%)</span></td>
+            <td><span class="hot">3</span> <span class="pct">(25%)</span></td>
+            <td>📧 email</td>
+        </tr>
+        <tr>
+            <td>🥖 Boulangerie / Pâtisserie</td>
+            <td>83</td>
+            <td>67 <span class="pct">(80%)</span></td>
+            <td><span class="hot">0</span> <span class="pct">(0%)</span></td>
+            <td>📸 instagram</td>
+        </tr>
+        <tr>
+            <td>🛡️ Assurance</td>
+            <td>30</td>
+            <td>6 <span class="pct">(20%)</span></td>
+            <td><span class="hot">0</span> <span class="pct">(0%)</span></td>
+            <td>📧 email</td>
+        </tr>
+        <tr>
+            <td>💐 Fleuriste</td>
+            <td>40</td>
+            <td>25 <span class="pct">(62%)</span></td>
+            <td><span class="hot">0</span> <span class="pct">(0%)</span></td>
+            <td>📸 instagram</td>
+        </tr>
+        <tr>
+            <td>🚗 Garage auto</td>
+            <td>94</td>
+            <td>63 <span class="pct">(67%)</span></td>
+            <td><span class="hot">0</span> <span class="pct">(0%)</span></td>
+            <td>📱 sms</td>
+        </tr>
+        <tr>
+            <td>🏥 Kiné / Ostéopathe</td>
+            <td>24</td>
+            <td>18 <span class="pct">(75%)</span></td>
+            <td><span class="hot">0</span> <span class="pct">(0%)</span></td>
+            <td>📧 email</td>
+        </tr>
+        <tr>
+            <td>🦷 Santé</td>
+            <td>38</td>
+            <td>31 <span class="pct">(81%)</span></td>
+            <td><span class="hot">0</span> <span class="pct">(0%)</span></td>
+            <td>📧 email</td>
+        </tr>
+        <tr>
+            <td>💅 Beauté</td>
+            <td>120</td>
+            <td>93 <span class="pct">(77%)</span></td>
+            <td><span class="hot">0</span> <span class="pct">(0%)</span></td>
+            <td>📸 instagram</td>
+        </tr>
+        <tr>
+            <td>💪 Sport</td>
+            <td>44</td>
+            <td>21 <span class="pct">(47%)</span></td>
+            <td><span class="hot">0</span> <span class="pct">(0%)</span></td>
+            <td>📸 instagram</td>
+        </tr>
+</table>
+</section>
+
+<section>
+<h2>📍 Répartition géographique</h2>
+<table>
+  <tr><th>Ville</th><th>Total</th><th>Sans site</th><th>% sans site</th></tr>
+  
+        <tr>
+            <td>📍 Gaillard</td>
+            <td>1343</td>
+            <td>1090</td>
+            <td>81%</td>
+        </tr>
+        <tr>
+            <td>📍 Annemasse</td>
+            <td>965</td>
+            <td>508</td>
+            <td>52%</td>
+        </tr>
+        <tr>
+            <td>📍 Ville-la-Grand</td>
+            <td>42</td>
+            <td>24</td>
+            <td>57%</td>
+        </tr>
+        <tr>
+            <td>📍 Saint-Julien-en-Genevois</td>
+            <td>26</td>
+            <td>15</td>
+            <td>57%</td>
+        </tr>
+        <tr>
+            <td>📍 Ambilly</td>
+            <td>6</td>
+            <td>4</td>
+            <td>66%</td>
+        </tr>
+</table>
+</section>
+
+<section>
+<h2>🎯 Top 30 HOT Leads</h2>
+<table>
+  <tr><th>#</th><th>Commerce</th><th>Secteur</th><th>Ville</th><th>Score</th><th>Canal</th><th>Status</th></tr>
+  
+        <tr>
+            <td>1</td>
+            <td class="name">🍽️ Café de la Réunion</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status flagged">flagged</span></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td class="name">🍽️ As de Pique</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status flagged">flagged</span></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td class="name">🍽️ Restaurant du Tennis</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status flagged">flagged</span></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td class="name">🍽️ I Sapori</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status flagged">flagged</span></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td class="name">🍽️ La Colombière</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status flagged">flagged</span></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td class="name">🍽️ Buffalo Grill</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td class="name">🍽️ Marina Mezze</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td class="name">🍽️ La petite Vendée</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td class="name">🍽️ Tennis Club de Lancy</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td class="name">🍽️ Il Vesuvio</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td class="name">🍽️ Le Vieux-Vernier</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td class="name">🍽️ Auberge de la Mairie</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td class="name">🍽️ Café de l'Etoile</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td class="name">🍽️ Il Caminetto</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td class="name">🍽️ Pizza Party</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td class="name">🍽️ Auberge Communale de Satigny</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td class="name">🍽️ Pizzeria de La Place</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td class="name">🍽️ Le Point du Jour</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td class="name">🍽️ Pizzeria les Tilleuls</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td class="name">🍽️ La Belotte</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td class="name">🍽️ Pizza Bella</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td class="name">🍽️ Brasserie Lipp</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>23</td>
+            <td class="name">🍽️ Gilles Desplanches</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>24</td>
+            <td class="name">🍽️ Al Amir</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td class="name">🍽️ Hungky</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>26</td>
+            <td class="name">🍽️ El Mektoub</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>27</td>
+            <td class="name">🍽️ Maison Açai</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>28</td>
+            <td class="name">🍽️ La Matze</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>29</td>
+            <td class="name">🍽️ Brasserie Lamartine</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+        <tr>
+            <td>30</td>
+            <td class="name">🍽️ Restaurant Le Dorian</td>
+            <td>Restaurant</td>
+            <td>Annemasse</td>
+            <td><span class="score">82</span></td>
+            <td>📸 instagram</td>
+            <td><span class="status diagnosed">diagnosed</span></td>
+        </tr>
+</table>
+</section>
+
+<section>
+<h2>💰 Unit Economics</h2>
+<div class="two-col">
+  <div class="card">
+    <div class="card-label">Scénario Modéré (3% conversion)</div>
+    <div class="card-value green">38 deals</div>
+    <div class="cost">CA estimé: 15,200€/mois · Coût: 30€/mois · Marge: 99.8%</div>
+  </div>
+  <div class="card">
+    <div class="card-label">Scénario Optimiste (5% conversion)</div>
+    <div class="card-value green">63 deals</div>
+    <div class="cost">CA estimé: 25,200€/mois · Coût: 30€/mois · Marge: 99.9%</div>
+  </div>
+</div>
+</section>
+
+<footer>
+  SocialPulse Annemasse Agency v5.0 · 7 agents IA · Haute-Savoie · 06/05/2026 11:27<br>
+  Inspiré de <a href="https://x.com/browomo/status/2051747188787523825" style="color:var(--pulse2)">@browomo</a> — Adapté 100% open-source · Overpass API + OpenRouter + HyperFrame
+</footer>
+
+</body>
+</html>

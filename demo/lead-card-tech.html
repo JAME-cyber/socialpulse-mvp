@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; background: #0a0e17;
+    font-family: 'Inter', sans-serif; color: #f0f2f5; }
+
+  .progress { position: absolute; top: 0; left: 0; right: 0; height: 4px; z-index: 100; }
+  .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #6366f1, #818cf8); }
+
+  .scene { position: absolute; top: 120px; left: 40px; right: 80px; bottom: 200px; }
+  #s1 { z-index: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  #s2 { z-index: 2; opacity: 0; display: flex; flex-direction: column; justify-content: center; padding: 40px; }
+  #s3 { z-index: 3; opacity: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+  .hook-badge { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 4px;
+    color: #10b981; background: rgba(16,185,129,.12); padding: 10px 24px;
+    border-radius: 8px; border: 1px solid rgba(16,185,129,.2); }
+  .hook-title { font-size: 48px; font-weight: 900; text-align: center; margin-top: 28px; line-height: 1.1; letter-spacing: -1px; }
+  .hook-title .accent { color: #6366f1; }
+  .hook-sub { font-size: 15px; color: #94a3b8; margin-top: 16px; font-weight: 500; }
+
+  .card { background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px; padding: 36px 40px; backdrop-filter: blur(10px); }
+  .card-top { display: flex; align-items: center; gap: 16px; }
+  .card-icon { font-size: 44px; }
+  .card-name { font-size: 30px; font-weight: 800; letter-spacing: -.5px; }
+  .card-vertical { font-size: 12px; color: #6366f1; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+  .card-divider { height: 1px; background: rgba(255,255,255,.06); margin: 24px 0; }
+  .card-signal { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 700; }
+  .card-signal .icon { font-size: 20px; }
+
+  .terminal { background: rgba(17,24,39,.9); border: 1px solid rgba(255,255,255,.1);
+    border-radius: 14px; padding: 16px 20px; margin-top: 20px; }
+  .terminal-dots { display: flex; gap: 6px; margin-bottom: 10px; }
+  .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .terminal-content { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #94a3b8; line-height: 1.8; }
+  .terminal-content .hl { color: #6366f1; font-weight: 700; }
+  .terminal-content .green { color: #10b981; }
+
+  .keywords { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .keyword { font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 10px;
+    background: rgba(99,102,241,.1); color: #6366f1; border: 1px solid rgba(99,102,241,.2); }
+
+  .score { font-size: 100px; font-weight: 900; color: #6366f1; font-variant-numeric: tabular-nums; }
+  .score-max { font-size: 24px; color: #94a3b8; font-weight: 400; }
+  .score-bar-bg { width: 70%; height: 10px; background: rgba(255,255,255,.06); border-radius: 5px; margin-top: 24px; overflow: hidden; }
+  .score-bar { height: 100%; width: 0%; border-radius: 5px; background: linear-gradient(90deg, #f59e0b, #6366f1); }
+  .score-label { font-size: 12px; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; }
+
+  .cta-logo { font-size: 48px; font-weight: 900; color: #6366f1; }
+  .cta-name { font-size: 26px; font-weight: 800; margin-top: 8px; }
+  .cta-tag { font-size: 16px; color: #94a3b8; margin-top: 12px; text-align: center; }
+  .cta-btn { margin-top: 24px; font-size: 17px; font-weight: 700; color: #0a0e17;
+    background: #6366f1; padding: 16px 40px; border-radius: 14px; }
+  .cta-url { margin-top: 12px; font-size: 13px; color: #94a3b8; }
+</style>
+</head>
+<body>
+  <div class="progress"><div class="progress-fill" id="pFill"></div></div>
+
+  <div class="scene" id="s1">
+    <div class="hook-badge" id="hookBadge">⚡ SIGNAL DÉTECTÉ</div>
+    <div class="hook-title" id="hookTitle">Ce prospect est <span class="accent">prêt à acheter</span></div>
+    <div class="hook-sub" id="hookSub">SocialPulse — Pipeline lead gen automatisé</div>
+  </div>
+
+  <div class="scene" id="s2">
+    <div class="card" id="card">
+      <div class="card-top">
+        <div class="card-icon" id="cardIcon">🚀</div>
+        <div>
+          <div class="card-name" id="cardName">TechVision SAS</div>
+          <div class="card-vertical" id="cardVert">TECH</div>
+        </div>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card-signal" id="cardSignal">
+        <span class="icon">🟢</span> Seed Round 2M€ levée
+      </div>
+      <div class="terminal" id="terminal">
+        <div class="terminal-dots">
+          <div class="terminal-dot" style="background:#ff5f57"></div>
+          <div class="terminal-dot" style="background:#febc2e"></div>
+          <div class="terminal-dot" style="background:#28c840"></div>
+        </div>
+        <div class="terminal-content">
+          > <span class="hl">socialpulse score</span> --vertical tech --company "TechVision SAS"<br>
+          > signal detected: <span class="green">Seed Round 2M€ levée</span><br>
+          > lead score: <span class="hl">85/100</span> — QUALIFIED
+        </div>
+      </div>
+      <div class="keywords" id="keywords">
+        <div class="keyword" id="kw0">Seed Round</div><div class="keyword" id="kw1">CTO</div><div class="keyword" id="kw2">Lancement</div><div class="keyword" id="kw3">Scale-up</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene" id="s3">
+    <div class="score-label" id="scoreLabel">Lead Score</div>
+    <div><span class="score" id="scoreNum">0</span><span class="score-max"> /100</span></div>
+    <div class="score-bar-bg"><div class="score-bar" id="scoreBar"></div></div>
+    <div class="cta-logo" id="ctaLogo" style="margin-top:32px">⚡</div>
+    <div class="cta-name" id="ctaName">SocialPulse</div>
+    <div class="cta-tag" id="ctaTag">De la donnée publique au lead qualifié</div>
+    <div class="cta-btn" id="ctaBtn">Essai gratuit →</div>
+    <div class="cta-url" id="ctaUrl">socialpulse.io</div>
+  </div>
+
+  <script>
+    var tl = gsap.timeline();
+    window.__tl = tl;
+    var dur = 10;
+
+    tl.to("#pFill", { width: "100%", duration: dur, ease: "none" }, 0);
+
+    // Scene 1: Hook (0→3s)
+    tl.fromTo("#hookBadge", { scale: .8, opacity: 0 }, { scale: 1, opacity: 1, duration: .5, ease: "back.out(1.7)" }, .2);
+    tl.fromTo("#hookTitle", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: .7, ease: "power3.out" }, .5);
+    tl.fromTo("#hookSub", { opacity: 0 }, { opacity: 1, duration: .4 }, 1);
+    tl.to("#s1", { opacity: 0, duration: .4 }, 2.8);
+
+    // Scene 2: Card (3→7s)
+    tl.set("#s2", { opacity: 1 }, 2.8);
+    tl.fromTo("#card", { y: 60, opacity: 0, scale: .95 }, { y: 0, opacity: 1, scale: 1, duration: .8, ease: "power3.out" }, 3);
+    tl.fromTo("#terminal", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: .5 }, 3.6);
+    tl.fromTo(".keyword", { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: .3, stagger: .1 }, 4.2);
+    tl.to("#s2", { opacity: 0, duration: .4 }, 6.8);
+
+    // Scene 3: Score + CTA (7→end)
+    tl.set("#s3", { opacity: 1 }, 6.8);
+    tl.fromTo("#scoreLabel", { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: .4 }, 7);
+    tl.fromTo("#scoreNum", { scale: .5, opacity: 0 }, { scale: 1, opacity: 1, duration: .6, ease: "back.out(1.5)" }, 7.2);
+    tl.to("#scoreNum", { innerText: 85, duration: 1.5, snap: { innerText: 1 }, ease: "power2.out" }, 7.3);
+    tl.to("#scoreBar", { width: "85%", duration: 1.5, ease: "power2.out" }, 7.3);
+    tl.fromTo("#ctaLogo", { scale: 0 }, { scale: 1, duration: .5, ease: "back.out(2)" }, 8.5);
+    tl.fromTo("#ctaName", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: .4 }, 8.7);
+    tl.fromTo("#ctaTag", { opacity: 0 }, { opacity: 1, duration: .4 }, 9);
+    tl.fromTo("#ctaBtn", { scale: .9, opacity: 0 }, { scale: 1, opacity: 1, duration: .4, ease: "back.out(1.5)" }, 9.3);
+    tl.fromTo("#ctaUrl", { opacity: 0 }, { opacity: 1, duration: .3 }, 9.6);
+  </script>
+</body>
+</html>

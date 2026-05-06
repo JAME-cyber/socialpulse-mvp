@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Café de la Réunion",
+    "sector": "Restaurant",
+    "channel": "instagram",
+    "phone": "",
+    "message": "Salut ! 👋 J'ai vu Café de la Réunion sur Google Maps — super notes ! 🌟 Juste un message rapide: on aide les restaurant de Annemasse à avoir un site pro. Si ça vous dit, on peut en discuter ?",
+    "score": 82,
+    "status": "ready_to_send"
+  },
+  {
+    "name": "As de Pique",
+    "sector": "Restaurant",
+    "channel": "instagram",
+    "phone": "",
+    "message": "Salut ! 👋 J'ai vu As de Pique sur Google Maps — super notes ! 🌟 Juste un message rapide: on aide les restaurant de Annemasse à avoir un site pro. Si ça vous dit, on peut en discuter ?",
+    "score": 82,
+    "status": "ready_to_send"
+  },
+  {
+    "name": "Restaurant du Tennis",
+    "sector": "Restaurant",
+    "channel": "instagram",
+    "phone": "",
+    "message": "Salut ! 👋 J'ai vu Restaurant du Tennis sur Google Maps — super notes ! 🌟 Juste un message rapide: on aide les restaurant de Annemasse à avoir un site pro. Si ça vous dit, on peut en discuter ?",
+    "score": 82,
+    "status": "ready_to_send"
+  },
+  {
+    "name": "I Sapori",
+    "sector": "Restaurant",
+    "channel": "instagram",
+    "phone": "",
+    "message": "Salut ! 👋 J'ai vu I Sapori sur Google Maps — super notes ! 🌟 Juste un message rapide: on aide les restaurant de Annemasse à avoir un site pro. Si ça vous dit, on peut en discuter ?",
+    "score": 82,
+    "status": "ready_to_send"
+  },
+  {
+    "name": "La Colombière",
+    "sector": "Restaurant",
+    "channel": "instagram",
+    "phone": "",
+    "message": "Salut ! 👋 J'ai vu La Colombière sur Google Maps — super notes ! 🌟 Juste un message rapide: on aide les restaurant de Annemasse à avoir un site pro. Si ça vous dit, on peut en discuter ?",
+    "score": 82,
+    "status": "ready_to_send"
+  }
+]

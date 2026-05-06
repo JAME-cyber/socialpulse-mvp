@@ -1,0 +1,231 @@
+# SocialPulse Annemasse Agency — Campaign Config
+# Adapté du scénario "7 agents" pour Haute-Savoie (74)
+# Villes: Annemasse, Gaillard, Ville-la-Grand, Saint-Julien-en-Genevois
+
+campaign:
+  name: "annemasse-local-business"
+  label: "SocialPulse — PME Annemasse & Agglomération"
+  version: "5.0"
+  created: "2026-05-06"
+  status: "active"
+  
+  # 7 agents comme le scénario original
+  agents:
+    - scout      # Google Maps → découvre les PME
+    - diagnoser  # Analyse + diagnostic + cold message
+    - builder    # Landing page mockup (HTML local)
+    - filmer     # Vidéo 10s vertical (HyperFrame + FFmpeg)
+    - pitcher    # Envoi cold messages (email/LinkedIn)
+    - checker    # Evals qualité avant envoi
+    - mobile     # Gère les réponses positives
+
+target:
+  description: "PME sans site ou site obsolète dans l'agglomération d'Annemasse"
+  
+  cities:
+    - name: "Annemasse"
+      zip: "74100"
+      population: 35000
+    - name: "Gaillard"
+      zip: "74240"
+      population: 12000
+    - name: "Ville-la-Grand"
+      zip: "74100"
+      population: 8000
+    - name: "Saint-Julien-en-Genevois"
+      zip: "74160"
+      population: 15000
+  
+  department: "Haute-Savoie"
+  region: "Auvergne-Rhône-Alpes"
+  country: "FR"
+  
+  # Secteurs prioritaires — PME locales typiques
+  sectors:
+    - name: "Restaurant"
+      icon: "🍽️"
+      weight: 100
+      search_queries:
+        - "restaurant Annemasse"
+        - "restaurant Gaillard"
+        - "brasserie Ville-la-Grand"
+        - "restaurant Saint-Julien-en-Genevois"
+      channel: "instagram"  # IG DM pour restaurants
+      
+    - name: "Salon de coiffure"
+      icon: "💇"
+      weight: 100
+      search_queries:
+        - "salon coiffure Annemasse"
+        - "coiffeur Gaillard"
+        - "salon coiffure Saint-Julien"
+      channel: "instagram"
+      
+    - name: "Plombier / Chauffagiste"
+      icon: "🔧"
+      weight: 100
+      search_queries:
+        - "plombier Annemasse"
+        - "chauffagiste Gaillard"
+        - "plombier Saint-Julien-en-Genevois"
+      channel: "sms"
+      
+    - name: "Avocat"
+      icon: "⚖️"
+      weight: 90
+      search_queries:
+        - "cabinet avocat Annemasse"
+        - "avocat Gaillard"
+        - "avocat Saint-Julien-en-Genevois"
+      channel: "email"
+      
+    - name: "Immobilier"
+      icon: "🏠"
+      weight: 90
+      search_queries:
+        - "agence immobilière Annemasse"
+        - "agent immobilier Gaillard"
+        - "immobilier Saint-Julien"
+      channel: "linkedin"
+      
+    - name: "Garage auto"
+      icon: "🚗"
+      weight: 80
+      search_queries:
+        - "garage automobile Annemasse"
+        - "mécanicien Gaillard"
+        - "garage auto Saint-Julien"
+      channel: "sms"
+      
+    - name: "Cabinet comptable"
+      icon: "📊"
+      weight: 90
+      search_queries:
+        - "expert comptable Annemasse"
+        - "cabinet comptable Gaillard"
+      channel: "email"
+      
+    - name: "Boulangerie / Pâtisserie"
+      icon: "🥖"
+      weight: 80
+      search_queries:
+        - "boulangerie Annemasse"
+        - "boulangerie Gaillard"
+        - "pâtisserie Ville-la-Grand"
+      channel: "instagram"
+      
+    - name: "Kiné / Ostéopathe"
+      icon: "🏥"
+      weight: 80
+      search_queries:
+        - "kinésithérapeute Annemasse"
+        - "ostéopathe Gaillard"
+        - "kiné Saint-Julien"
+      channel: "email"
+      
+    - name: "Fleuriste"
+      icon: "💐"
+      weight: 70
+      search_queries:
+        - "fleuriste Annemasse"
+        - "fleuriste Gaillard"
+      channel: "instagram"
+
+# Critères Scout (comme le tweet: 5+ ans, <50 avis, pas de site ou site 2014)
+scout_criteria:
+  min_years_on_maps: 3          # Moins strict que le tweet (5 ans) car zone plus petite
+  max_reviews: 50               # Comme le tweet
+  rating_min: 3.5               # Bonne réputation
+  website_red_flags:
+    - "no_website"              # Pas de site du tout
+    - "facebook.com"            # Seulement une page Facebook
+    - "google.com/maps"         # Seulement Maps
+    - "pagejaunes.fr"           # Seulement PagesJaunes
+  
+# Scoring (déterministe)
+scoring:
+  threshold: 50                 # Plus permissif que le CH (60) car marché local plus petit
+  
+  criteria:
+    has_website:
+      weight: 0.30
+      mapping:
+        "none": 100             # Pas de site = meilleur prospect
+        "facebook_only": 80     # Seulement FB
+        "pagejaunes_only": 70
+        "outdated": 60          # Site vieux
+        "modern": 20            # Déjà un bon site
+    
+    review_gap:
+      weight: 0.25
+      description: "Écart entre rating élevé et peu d'avis = potentiel"
+      mapping:
+        "high_rating_low_reviews": 100
+        "medium_rating_few_reviews": 70
+        "low_rating": 30
+    
+    sector:
+      weight: 0.25
+      mapping:
+        "Restaurant": 100
+        "Salon de coiffure": 100
+        "Plombier / Chauffagiste": 100
+        "Avocat": 90
+        "Immobilier": 90
+        "Garage auto": 80
+        "Cabinet comptable": 90
+        "Boulangerie": 80
+        "default": 50
+    
+    location:
+      weight: 0.20
+      mapping:
+        "Annemasse": 100
+        "Gaillard": 90
+        "Saint-Julien-en-Genevois": 90
+        "Ville-la-Grand": 85
+
+# Médiateur (hérité de SocialPulse v4)
+mediateur:
+  enabled: true
+  rules_file: "../mediateur_rules.json"
+  gel_on_violation: true
+  require_arbitrage_on_gel: true
+
+# Journal WORM
+journal:
+  enabled: true
+  hash_algorithm: "sha256"
+  storage: "local"
+  retention_days: 365
+
+# Budget
+budget:
+  apify_monthly_usd: 50
+  openrouter_monthly_usd: 30
+  hyperframe_render: 0          # Local, gratuit
+  total_monthly_usd: 80         # vs $480 dans le tweet
+  
+# Prix de vente (comme le tweet: $400/deal)
+pricing:
+  landing_page_eur: 350
+  landing_page_with_video_eur: 500
+  website_complete_eur: 800
+  deal_threshold_manual_eur: 3000  # Comme le tweet
+
+# Distribution (canal par secteur)
+channels:
+  email:
+    sectors: ["Avocat", "Cabinet comptable", "Kiné / Ostéopathe"]
+  sms:
+    sectors: ["Plombier / Chauffagiste", "Garage auto"]
+  instagram:
+    sectors: ["Restaurant", "Salon de coiffure", "Boulangerie", "Fleuriste"]
+  linkedin:
+    sectors: ["Immobilier"]
+
+# Horaires
+schedule:
+  scout_runs: "06:00, 12:00, 18:00"   # 3 runs/jour
+  pitch_window: "09:00-11:00, 14:00-16:00"  # Heures bureau
+  max_pitches_per_day: 30

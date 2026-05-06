@@ -1,0 +1,50 @@
+{
+  "batch_id": "annemasse-20260506-105131",
+  "entries": [
+    {
+      "seq": 1,
+      "timestamp": "2026-05-06T10:51:31.430055",
+      "action": "orchestrator.init",
+      "actor": "system",
+      "details": {
+        "agents": 7,
+        "campaign": "annemasse-local-business",
+        "cities": [
+          "Annemasse",
+          "Gaillard",
+          "Ville-la-Grand",
+          "Saint-Julien-en-Genevois"
+        ]
+      },
+      "prev_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "sha256:f006a4e074bc6b6f5717f09ad8eaf34393b93a41664400463bd56090b6b461bf"
+    },
+    {
+      "seq": 2,
+      "timestamp": "2026-05-06T10:52:22.715989",
+      "action": "scout.overpass",
+      "actor": "osm",
+      "details": {
+        "total_found": 2513,
+        "cost_usd": 0
+      },
+      "prev_hash": "sha256:f006a4e074bc6b6f5717f09ad8eaf34393b93a41664400463bd56090b6b461bf",
+      "hash": "sha256:d93d3e573ed6504f2b31db533baee96aecd70d224d86aa9ac3670c2b2d3cf36d"
+    },
+    {
+      "seq": 3,
+      "timestamp": "2026-05-06T10:52:23.099145",
+      "action": "scout.complete",
+      "actor": "system",
+      "details": {
+        "total_raw": 2513,
+        "unique": 2352,
+        "new_in_queue": 2352
+      },
+      "prev_hash": "sha256:d93d3e573ed6504f2b31db533baee96aecd70d224d86aa9ac3670c2b2d3cf36d",
+      "hash": "sha256:d9080ac64ad7817c450f0e0b8e0f6ece676de94e4eb6dacc66c82d9dca07d5ec"
+    }
+  ],
+  "total": 3,
+  "updated": "2026-05-06T10:52:23.099334"
+}

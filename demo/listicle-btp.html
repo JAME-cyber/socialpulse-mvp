@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1920px; overflow: hidden; background: #0a0e17;
+    font-family: 'Inter', sans-serif; color: #f0f2f5; }
+  .progress { position: absolute; top: 0; left: 0; right: 0; height: 4px; z-index: 100; }
+  .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #6366f1, #818cf8); }
+  .scene { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  #s_header { z-index: 1; }
+  #s_cta { z-index: 6; opacity: 0; }
+  
+    #s_item0 { z-index: 2; opacity: 0; }
+    .item-outer0 { position: absolute; top: 120px; left: 40px; right: 80px; bottom: 200px;
+      display: flex; flex-direction: column; justify-content: center; }
+    .item-card0 { background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; padding: 40px; backdrop-filter: blur(10px); }
+    .item-num0 { font-size: 14px; font-weight: 800; color: #6366f1;
+      background: rgba(99,102,241,.15); padding: 8px 16px; border-radius: 10px;
+      display: inline-block; margin-bottom: 20px; }
+    .item-text0 { font-size: 26px; font-weight: 700; line-height: 1.3; }
+    .item-icon0 { font-size: 32px; margin-bottom: 16px; }
+
+    #s_item1 { z-index: 3; opacity: 0; }
+    .item-outer1 { position: absolute; top: 120px; left: 40px; right: 80px; bottom: 200px;
+      display: flex; flex-direction: column; justify-content: center; }
+    .item-card1 { background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; padding: 40px; backdrop-filter: blur(10px); }
+    .item-num1 { font-size: 14px; font-weight: 800; color: #6366f1;
+      background: rgba(99,102,241,.15); padding: 8px 16px; border-radius: 10px;
+      display: inline-block; margin-bottom: 20px; }
+    .item-text1 { font-size: 26px; font-weight: 700; line-height: 1.3; }
+    .item-icon1 { font-size: 32px; margin-bottom: 16px; }
+
+    #s_item2 { z-index: 4; opacity: 0; }
+    .item-outer2 { position: absolute; top: 120px; left: 40px; right: 80px; bottom: 200px;
+      display: flex; flex-direction: column; justify-content: center; }
+    .item-card2 { background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; padding: 40px; backdrop-filter: blur(10px); }
+    .item-num2 { font-size: 14px; font-weight: 800; color: #6366f1;
+      background: rgba(99,102,241,.15); padding: 8px 16px; border-radius: 10px;
+      display: inline-block; margin-bottom: 20px; }
+    .item-text2 { font-size: 26px; font-weight: 700; line-height: 1.3; }
+    .item-icon2 { font-size: 32px; margin-bottom: 16px; }
+
+    #s_item3 { z-index: 5; opacity: 0; }
+    .item-outer3 { position: absolute; top: 120px; left: 40px; right: 80px; bottom: 200px;
+      display: flex; flex-direction: column; justify-content: center; }
+    .item-card3 { background: rgba(17,24,39,.85); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; padding: 40px; backdrop-filter: blur(10px); }
+    .item-num3 { font-size: 14px; font-weight: 800; color: #6366f1;
+      background: rgba(99,102,241,.15); padding: 8px 16px; border-radius: 10px;
+      display: inline-block; margin-bottom: 20px; }
+    .item-text3 { font-size: 26px; font-weight: 700; line-height: 1.3; }
+    .item-icon3 { font-size: 32px; margin-bottom: 16px; }
+
+  .header-section { position: absolute; top: 120px; left: 40px; right: 80px; bottom: 200px;
+    display: flex; flex-direction: column; justify-content: center; }
+  .header-icon { font-size: 40px; }
+  .header-title { font-size: 36px; font-weight: 900; margin-top: 16px; letter-spacing: -.5px; }
+  .header-sub { font-size: 14px; color: #94a3b8; margin-top: 8px; font-weight: 500; }
+  .cta-section { position: absolute; top: 120px; left: 40px; right: 80px; bottom: 200px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .cta-logo { font-size: 48px; font-weight: 900; color: #6366f1; }
+  .cta-btn { margin-top: 24px; font-size: 17px; font-weight: 700; color: #0a0e17;
+    background: #6366f1; padding: 16px 40px; border-radius: 14px; }
+  .cta-url { margin-top: 12px; font-size: 13px; color: #94a3b8; }
+</style>
+</head>
+<body>
+  <div class="progress"><div class="progress-fill" id="pFill"></div></div>
+  <div class="scene" id="s_header">
+    <div class="header-section">
+      <div class="header-icon" id="hIcon">🏗️</div>
+      <div class="header-title" id="hTitle">4 signaux pour btp</div>
+      <div class="header-sub" id="hSub">SocialPulse — Lead Scoring Automatisé</div>
+    </div>
+  </div>
+  
+    <div class="scene" id="s_item0">
+      <div class="item-outer0">
+        <div class="item-card0">
+          <div class="item-icon0" id="iIcon0">🏗️</div>
+          <div class="item-num0" id="iNum0">1 / 4</div>
+          <div class="item-text0" id="iText0">Chantier CHF 5M Neuchâtel</div>
+        </div>
+      </div>
+    </div>
+    <div class="scene" id="s_item1">
+      <div class="item-outer1">
+        <div class="item-card1">
+          <div class="item-icon1" id="iIcon1">🏗️</div>
+          <div class="item-num1" id="iNum1">2 / 4</div>
+          <div class="item-text1" id="iText1">Recrutement chef projet senior</div>
+        </div>
+      </div>
+    </div>
+    <div class="scene" id="s_item2">
+      <div class="item-outer2">
+        <div class="item-card2">
+          <div class="item-icon2" id="iIcon2">🏗️</div>
+          <div class="item-num2" id="iNum2">3 / 4</div>
+          <div class="item-text2" id="iText2">Certification ISO 9001 en cours</div>
+        </div>
+      </div>
+    </div>
+    <div class="scene" id="s_item3">
+      <div class="item-outer3">
+        <div class="item-card3">
+          <div class="item-icon3" id="iIcon3">🏗️</div>
+          <div class="item-num3" id="iNum3">4 / 4</div>
+          <div class="item-text3" id="iText3">Extension zone couverture Valais</div>
+        </div>
+      </div>
+    </div>
+  <div class="scene" id="s_cta">
+    <div class="cta-section">
+      <div class="cta-logo" id="ctaLogo">⚡</div>
+      <div style="font-size:24px;font-weight:800;margin-top:8px" id="ctaTitle">SocialPulse</div>
+      <div class="cta-btn" id="ctaBtn">Essai gratuit →</div>
+      <div class="cta-url" id="ctaUrl">socialpulse.io</div>
+    </div>
+  </div>
+  <script>
+    var tl = gsap.timeline(); window.__tl = tl;
+    tl.to("#pFill", { width: "100%", duration: 12, ease: "none" }, 0);
+    tl.fromTo("#hIcon", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: .5, ease: "back.out(2)" }, .2);
+    tl.fromTo("#hTitle", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .6, ease: "power3.out" }, .4);
+    tl.fromTo("#hSub", { opacity: 0 }, { opacity: 1, duration: .4 }, .8);
+    tl.to("#s_header", { opacity: 0, duration: .35 }, 1.8);
+    
+    tl.set("#s_item0", { opacity: 1 }, 0.0);
+    tl.fromTo("#iIcon0", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: .4, ease: "back.out(2)" }, 0.0+.1);
+    tl.fromTo("#iNum0", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: .4, ease: "power3.out" }, 0.0+.3);
+    tl.fromTo("#iText0", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power3.out" }, 0.0+.5);
+    tl.to("#s_item0", { opacity: 0, duration: .35, ease: "power2.inOut" }, 2.25-.35);
+
+    tl.set("#s_item1", { opacity: 1 }, 2.25);
+    tl.fromTo("#iIcon1", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: .4, ease: "back.out(2)" }, 2.25+.1);
+    tl.fromTo("#iNum1", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: .4, ease: "power3.out" }, 2.25+.3);
+    tl.fromTo("#iText1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power3.out" }, 2.25+.5);
+    tl.to("#s_item1", { opacity: 0, duration: .35, ease: "power2.inOut" }, 4.5-.35);
+
+    tl.set("#s_item2", { opacity: 1 }, 4.5);
+    tl.fromTo("#iIcon2", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: .4, ease: "back.out(2)" }, 4.5+.1);
+    tl.fromTo("#iNum2", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: .4, ease: "power3.out" }, 4.5+.3);
+    tl.fromTo("#iText2", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power3.out" }, 4.5+.5);
+    tl.to("#s_item2", { opacity: 0, duration: .35, ease: "power2.inOut" }, 6.75-.35);
+
+    tl.set("#s_item3", { opacity: 1 }, 6.75);
+    tl.fromTo("#iIcon3", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: .4, ease: "back.out(2)" }, 6.75+.1);
+    tl.fromTo("#iNum3", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: .4, ease: "power3.out" }, 6.75+.3);
+    tl.fromTo("#iText3", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power3.out" }, 6.75+.5);
+    tl.to("#s_item3", { opacity: 0, duration: .35, ease: "power2.inOut" }, 9.0-.35);
+
+    tl.set("#s_cta", { opacity: 1 }, 9.0);
+    tl.fromTo("#ctaLogo", { scale: 0 }, { scale: 1, duration: .5, ease: "back.out(2)" }, 9.0+.1);
+    tl.fromTo("#ctaTitle", { y: 15, opacity: 0 }, { y: 0, opacity: 1, duration: .4 }, 9.0+.3);
+    tl.fromTo("#ctaBtn", { scale: .9, opacity: 0 }, { scale: 1, opacity: 1, duration: .4, ease: "back.out(1.5)" }, 9.0+.6);
+    tl.fromTo("#ctaUrl", { opacity: 0 }, { opacity: 1, duration: .3 }, 9.0+.9);
+  </script>
+</body>
+</html>
