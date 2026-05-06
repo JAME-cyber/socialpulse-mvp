@@ -98,7 +98,18 @@ class GeoReportContract(BaseModel):
     by_sector: dict[str, dict[str, Any]] = Field(default_factory=dict)
     by_grade: dict[str, int] = Field(default_factory=dict)
     top_improvements: list[str] = Field(default_factory=list)
-    geo_opportunity_score: float = Field(ge=0, le=100)
+    geo_opportunity_score: float = Field(default=0, ge=0, le=100)
+
+
+class DesignMdContract(BaseModel):
+    """Contrat pour un DESIGN.md GEO-aware (format Google Stitch compatible)."""
+    business_name: str = Field(..., min_length=1)
+    city: str = Field(..., min_length=1)
+    sector: str = Field(..., min_length=1)
+    style_profile: str = Field(default="local_default")
+    geo_score: int = Field(default=0, ge=0, le=100)
+    markdown: str = Field(default="", min_length=10)
+    sections: list[str] = Field(default_factory=list)
 
 
 # ── Scoring déterministe (Skill #9 — Non-determinism Management) ──
@@ -528,6 +539,426 @@ def score_geo(business: dict) -> GeoScoreResult:
     )
 
 
+# ── DESIGN.md Profiles (inspired by VoltAgent/Google Stitch) ──
+
+_SECTOR_PROFILES: dict[str, dict[str, Any]] = {
+    "restaurant": {
+        "palette": {
+            "primary": "#8B4513",
+            "secondary": "#D2691E",
+            "accent": "#FFD700",
+            "background": "#FFF8F0",
+            "surface": "#FFFFFF",
+            "text": "#2C1810",
+            "text_muted": "#6B4226",
+        },
+        "fonts": {
+            "heading": "Playfair Display",
+            "body": "Source Sans 3",
+            "fallback": "Georgia, serif",
+        },
+        "atmosphere": (
+            "Warm, inviting, terroir. Rich browns and golds evoke French culinary tradition. "
+            "Typography balances elegance (headings) with readability (body). "
+            "Cards with subtle shadows suggest a menu or table setting."
+        ),
+        "radius": "8px",
+        "shadow": "0 2px 8px rgba(139,69,19,0.12)",
+    },
+    "boulangerie": {
+        "palette": {
+            "primary": "#C8A97E",
+            "secondary": "#8B6914",
+            "accent": "#F5E6D0",
+            "background": "#FFFBF5",
+            "surface": "#FFF8EE",
+            "text": "#3E2723",
+            "text_muted": "#795548",
+        },
+        "fonts": {
+            "heading": "DM Serif Display",
+            "body": "Nunito",
+            "fallback": "Georgia, serif",
+        },
+        "atmosphere": (
+            "Artisanal, golden, comforting. Warm cream and wheat tones. "
+            "Typography reminiscent of a handwritten menu. Soft edges everywhere."
+        ),
+        "radius": "12px",
+        "shadow": "0 2px 6px rgba(139,105,20,0.10)",
+    },
+    "coiffeur": {
+        "palette": {
+            "primary": "#1A1A2E",
+            "secondary": "#E94560",
+            "accent": "#F5C518",
+            "background": "#FAFAFA",
+            "surface": "#FFFFFF",
+            "text": "#16213E",
+            "text_muted": "#5C6B7A",
+        },
+        "fonts": {
+            "heading": "Cormorant Garamond",
+            "body": "Poppins",
+            "fallback": "sans-serif",
+        },
+        "atmosphere": (
+            "Chic, modern, bold. Dark accents with vibrant red-gold highlights. "
+            "Typography is high-contrast — serif headings, clean sans body. "
+            "Gallery-style layout for before/after photos."
+        ),
+        "radius": "4px",
+        "shadow": "0 4px 12px rgba(26,26,46,0.15)",
+    },
+    "plombier": {
+        "palette": {
+            "primary": "#0D47A1",
+            "secondary": "#1565C0",
+            "accent": "#FF6F00",
+            "background": "#FFFFFF",
+            "surface": "#F5F8FF",
+            "text": "#0A1929",
+            "text_muted": "#546E7A",
+        },
+        "fonts": {
+            "heading": "Montserrat",
+            "body": "Open Sans",
+            "fallback": "sans-serif",
+        },
+        "atmosphere": (
+            "Professional, trustworthy, urgent. Blue conveys reliability. "
+            "Orange accent signals action/emergency. Clean sans-serif throughout. "
+            "Clear CTA buttons, phone number prominent."
+        ),
+        "radius": "6px",
+        "shadow": "0 2px 8px rgba(13,71,161,0.10)",
+    },
+    "garagiste": {
+        "palette": {
+            "primary": "#263238",
+            "secondary": "#D32F2F",
+            "accent": "#FFC107",
+            "background": "#FAFAFA",
+            "surface": "#FFFFFF",
+            "text": "#212121",
+            "text_muted": "#757575",
+        },
+        "fonts": {
+            "heading": "Oswald",
+            "body": "Roboto",
+            "fallback": "sans-serif",
+        },
+        "atmosphere": (
+            "Industrial, robust, reliable. Dark charcoal with red accents (urgency/mechanical). "
+            "Condensed headings for impact. Yellow for key CTAs. "
+            "Grid-based layout for services."
+        ),
+        "radius": "4px",
+        "shadow": "0 3px 10px rgba(38,50,56,0.12)",
+    },
+    "btp": {
+        "palette": {
+            "primary": "#E65100",
+            "secondary": "#3E2723",
+            "accent": "#FFB300",
+            "background": "#FFFFFF",
+            "surface": "#FFF8E1",
+            "text": "#1B0F0A",
+            "text_muted": "#6D4C41",
+        },
+        "fonts": {
+            "heading": "Barlow Condensed",
+            "body": "Inter",
+            "fallback": "sans-serif",
+        },
+        "atmosphere": (
+            "Solid, constructive, trustworthy. Orange/amber evokes construction and safety. "
+            "Dark brown for depth. Condensed headings for authority. "
+            "Block-based layout, structured sections."
+        ),
+        "radius": "6px",
+        "shadow": "0 3px 8px rgba(230,81,0,0.10)",
+    },
+    "commerce": {
+        "palette": {
+            "primary": "#1565C0",
+            "secondary": "#0D47A1",
+            "accent": "#4CAF50",
+            "background": "#FFFFFF",
+            "surface": "#F5F9FF",
+            "text": "#1A237E",
+            "text_muted": "#546E7A",
+        },
+        "fonts": {
+            "heading": "Lato",
+            "body": "Open Sans",
+            "fallback": "sans-serif",
+        },
+        "atmosphere": (
+            "Clean, professional, approachable. Blue builds trust, green signals growth. "
+            "Ample white space. Standard business layout."
+        ),
+        "radius": "8px",
+        "shadow": "0 2px 6px rgba(21,101,192,0.08)",
+    },
+    "sante": {
+        "palette": {
+            "primary": "#00796B",
+            "secondary": "#004D40",
+            "accent": "#26A69A",
+            "background": "#FAFFFE",
+            "surface": "#E8F5E9",
+            "text": "#1B5E20",
+            "text_muted": "#558B2F",
+        },
+        "fonts": {
+            "heading": "Merriweather",
+            "body": "Source Sans 3",
+            "fallback": "serif",
+        },
+        "atmosphere": (
+            "Calming, clean, professional. Teal/green = health and nature. "
+            "Serif headings for authority. Light backgrounds for clarity. "
+            "Minimal shadows, maximum readability."
+        ),
+        "radius": "10px",
+        "shadow": "0 2px 6px rgba(0,121,107,0.08)",
+    },
+}
+
+# Fallback pour secteurs non-listés
+_DEFAULT_PROFILE = _SECTOR_PROFILES["commerce"]
+
+
+def _get_profile(sector: str) -> dict[str, Any]:
+    """Résout le profil de style pour un secteur."""
+    sector_key = sector.strip().lower()
+    # Match par clé exacte ou substring
+    if sector_key in _SECTOR_PROFILES:
+        return _SECTOR_PROFILES[sector_key]
+    for key, profile in _SECTOR_PROFILES.items():
+        if key in sector_key or sector_key in key:
+            return profile
+    return _DEFAULT_PROFILE
+
+
+def generate_design_md(
+    business: dict,
+    score: GeoScoreResult | None = None,
+    content: GeoOptimizedContent | None = None,
+) -> DesignMdContract:
+    """
+    Génère un DESIGN.md GEO-aware pour une PME locale.
+
+    Format compatible Google Stitch / Claude Code / Cursor.
+    Le fichier contient:
+      - Visual theme & atmosphere
+      - Color palette avec rôles sémantiques
+      - Typography
+      - Spacing & layout
+      - GEO content blocks (definition, FAQ, schema)
+      - Component rules
+      - Local SEO signals
+
+    Déterministe — 0% LLM.
+    """
+    name = business.get("name", "Business")
+    sector = business.get("sector", "commerce")
+    city = business.get("city", "Annemasse")
+    address = business.get("address", "") or business.get("street", "")
+    phone = business.get("phone", "")
+    website = business.get("website", "")
+    geo_score_val = score.overall_score if score else 0
+
+    profile = _get_profile(sector)
+    pal = profile["palette"]
+    fonts = profile["fonts"]
+
+    # ── Build markdown ────────────────────────────────────────
+    sections = []
+    md = ""
+
+    # Header
+    md += f"# Design System — {name}\n\n"
+    md += f"> DESIGN.md auto-généré par SocialPulse GEO Agent\n"
+    md += f"> Secteur : **{sector}** · Ville : **{city}** · Score GEO : **{geo_score_val}/100**\n\n"
+    sections.append("header")
+
+    # 1. Visual Theme & Atmosphere
+    md += "## 1. Visual Theme & Atmosphere\n\n"
+    md += f"{profile['atmosphere']}\n\n"
+    md += f"The design targets a **{sector}** audience in **{city}** (Haute-Savoie, 74), "
+    md += "within the Franco-Valdo-Genevan cross-border agglomeration. "
+    md += "Every element should feel locally grounded, trustworthy, and immediately recognizable.\n\n"
+    sections.append("atmosphere")
+
+    # 2. Color Palette
+    md += "## 2. Color Palette & Roles\n\n"
+    md += "### Primary\n\n"
+    md += f"- **Primary** (`{pal['primary']}`): Primary brand color, headings, CTAs, nav links.\n"
+    md += f"- **Secondary** (`{pal['secondary']}`): Darker variant for emphasis, footer backgrounds, active states.\n"
+    md += f"- **Accent** (`{pal['accent']}`): Highlight color, badges, featured items, urgent CTAs.\n\n"
+    md += "### Surfaces\n\n"
+    md += f"- **Background** (`{pal['background']}`): Page background. Clean canvas.\n"
+    md += f"- **Surface** (`{pal['surface']}`): Card backgrounds, elevated containers.\n\n"
+    md += "### Text\n\n"
+    md += f"- **Text Primary** (`{pal['text']}`): Headings, body copy, nav text.\n"
+    md += f"- **Text Muted** (`{pal['text_muted']}`): Descriptions, captions, secondary labels.\n\n"
+    sections.append("palette")
+
+    # 3. Typography
+    md += "## 3. Typography\n\n"
+    md += f"- **Headings**: `{fonts['heading']}`, weight 600–700, tracking -0.02em\n"
+    md += f"- **Body**: `{fonts['body']}`, weight 400, line-height 1.6\n"
+    md += f"- **Fallback**: `{fonts['fallback']}`\n\n"
+    md += "Font sizes:\n"
+    md += "| Element | Size | Weight |\n"
+    md += "|---------|------|--------|\n"
+    md += "| H1 (page title) | 36px | 700 |\n"
+    md += "| H2 (section) | 28px | 600 |\n"
+    md += "| H3 (card title) | 22px | 600 |\n"
+    md += "| Body | 16px | 400 |\n"
+    md += "| Small/caption | 14px | 400 |\n\n"
+    sections.append("typography")
+
+    # 4. Spacing & Layout
+    md += "## 4. Spacing & Layout\n\n"
+    md += "- **Max content width**: 1200px\n"
+    md += "- **Grid**: 12-column, 24px gutter\n"
+    md += "- **Section padding**: 64px vertical (desktop), 40px (mobile)\n"
+    md += "- **Card padding**: 24px\n"
+    md += "- **Component gap**: 16px\n\n"
+    sections.append("layout")
+
+    # 5. Shadows & Depth
+    md += "## 5. Shadows & Depth\n\n"
+    md += f"- **Card default**: `{profile['shadow']}`\n"
+    md += "- **Card hover**: same shadow with 0 6px 20px (increased spread)\n"
+    md += "- **Border radius**: " + profile["radius"] + "\n\n"
+    sections.append("shadows")
+
+    # 6. GEO Content Blocks
+    md += "## 6. GEO Content Blocks\n\n"
+    md += "> These blocks are optimized for AI citation (ChatGPT, Perplexity, Google AI Overviews).\n"
+    md += "> Include them in the page HTML exactly as structured below.\n\n"
+
+    if content:
+        md += "### Definition Block\n\n"
+        md += f"{content.definition_block}\n\n"
+
+        md += "### FAQ Items (JSON-LD ready)\n\n"
+        for i, faq in enumerate(content.faq_items, 1):
+            md += f"**Q{i}**: {faq['question']}\n"
+            md += f"**A{i}**: {faq['answer']}\n\n"
+
+        md += "### Quotable Statements\n\n"
+        for stmt in content.quotable_statements:
+            md += f"- {stmt}\n"
+        md += "\n"
+    else:
+        md += f"(Run `generate_geo_content()` for business-specific GEO blocks.)\n\n"
+    sections.append("geo_content")
+
+    # 7. JSON-LD Schema
+    md += "## 7. JSON-LD LocalBusiness Schema\n\n"
+    md += "```json\n"
+    if content and content.schema_json_ld:
+        md += json.dumps(content.schema_json_ld, indent=2, ensure_ascii=False) + "\n"
+    else:
+        schema = {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": name,
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": city,
+                "addressRegion": "Auvergne-Rhône-Alpes",
+                "addressCountry": "FR",
+            },
+        }
+        if address:
+            schema["address"]["streetAddress"] = address
+        if phone:
+            schema["telephone"] = phone
+        md += json.dumps(schema, indent=2, ensure_ascii=False) + "\n"
+    md += "```\n\n"
+    sections.append("schema")
+
+    # 8. Local SEO Signals
+    md += "## 8. Local SEO Signals\n\n"
+    md += f"- **Business**: {name}\n"
+    md += f"- **City**: {city} (74 — Haute-Savoie)\n"
+    md += f"- **Region**: Auvergne-Rhône-Alpes\n"
+    md += f"- **Agglomeration**: Annemasse-Les Voirons\n"
+    md += f"- **Cross-border**: Grand Genève (FR-CH)\n"
+    if address:
+        md += f"- **Address**: {address}\n"
+    if phone:
+        md += f"- **Phone**: {phone}\n"
+    if website:
+        md += f"- **Website**: {website}\n"
+    md += "\n"
+    sections.append("local_seo")
+
+    # 9. Component Rules
+    md += "## 9. Component Rules\n\n"
+    md += "### CTA Button\n\n"
+    md += f"- Background: `{pal['primary']}`\n"
+    md += f"- Text color: `#FFFFFF`\n"
+    md += f"- Border-radius: {profile['radius']}\n"
+    md += "- Padding: 12px 24px\n"
+    md += "- Font: heading font, 16px, weight 600\n"
+    md += "- Hover: darken 10%, slight scale(1.02)\n\n"
+    md += "### Card\n\n"
+    md += f"- Background: `{pal['surface']}`\n"
+    md += f"- Border: 1px solid rgba(0,0,0,0.06)\n"
+    md += f"- Shadow: {profile['shadow']}\n"
+    md += f"- Border-radius: {profile['radius']}\n"
+    md += "- Padding: 24px\n\n"
+    md += "### Navigation\n\n"
+    md += "- Background: white, sticky top\n"
+    md += f"- Links: `{pal['text']}`, hover `{pal['primary']}`\n"
+    md += "- Font: body font, 15px\n\n"
+    md += "### Footer\n\n"
+    md += f"- Background: `{pal['secondary']}`\n"
+    md += "- Text: `#FFFFFF`\n"
+    md += "- Links: accent color, no underline\n\n"
+    sections.append("components")
+
+    # 10. GEO Score & Recommendations
+    if score:
+        md += "## 10. GEO Audit Summary\n\n"
+        md += f"| Axis | Score |\n"
+        md += f"|------|-------|\n"
+        md += f"| Overall | {score.overall_score}/100 ({score.grade}) |\n"
+        md += f"| Definition | {score.definition_score}/100 |\n"
+        md += f"| Authority | {score.authority_score}/100 |\n"
+        md += f"| Structure | {score.structure_score}/100 |\n"
+        md += f"| Schema | {score.schema_score}/100 |\n"
+        md += f"| Local | {score.local_score}/100 |\n"
+        md += f"| Freshness | {score.freshness_score}/100 |\n\n"
+        if score.recommendations:
+            md += "**Recommendations:**\n\n"
+            for r in score.recommendations:
+                md += f"- {r}\n"
+            md += "\n"
+        sections.append("audit")
+
+    md += "---\n\n"
+    md += f"*Generated by SocialPulse GEO Agent · {datetime.now(timezone.utc).strftime('%Y-%m-%d')} · "
+    md += f"{city}, Haute-Savoie (74)*\n"
+
+    return DesignMdContract(
+        business_name=name,
+        city=city,
+        sector=sector,
+        style_profile=list(_SECTOR_PROFILES.keys())[list(_SECTOR_PROFILES.values()).index(profile)] if profile in _SECTOR_PROFILES.values() else "local_default",
+        geo_score=geo_score_val,
+        markdown=md,
+        sections=sections,
+    )
+
+
 # ── GEO Content Optimizer ─────────────────────────────────────
 
 def generate_geo_content(business: dict, score: GeoScoreResult) -> GeoOptimizedContent:
@@ -812,6 +1243,48 @@ def main():
             print(f"  {report.total_businesses} businesses • Score moyen: {report.average_score} • Opportunité GEO: {report.geo_opportunity_score}/100")
         else:
             print("  Pas de données")
+
+    elif cmd == "design-md":
+        # Generate DESIGN.md for a business
+        state_path = Path("state/lead-queue.json")
+        businesses = []
+        if state_path.exists():
+            with open(state_path, encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, dict):
+                for key in ("leads", "data", "results", "items"):
+                    if key in data and isinstance(data[key], list):
+                        data = data[key]
+                        break
+            businesses = data if isinstance(data, list) else []
+
+        if len(sys.argv) >= 4:
+            # Specific business by name + city
+            target_name = sys.argv[2]
+            target_city = sys.argv[3]
+            business = None
+            for b in businesses:
+                bname = b.get("name", "")
+                bcity = b.get("city", "") or b.get("address", {}).get("city", "")
+                if target_name.lower() in bname.lower() and target_city.lower() in bcity.lower():
+                    business = b
+                    break
+            if not business:
+                business = {"name": target_name, "city": target_city, "sector": sys.argv[4] if len(sys.argv) > 4 else "commerce"}
+        elif businesses:
+            # First business as demo
+            business = businesses[0]
+        else:
+            print("  Usage: design-md <name> <city> [sector]")
+            print("  Or run from a directory with state/lead-queue.json")
+            return
+
+        result = score_geo(business)
+        content = generate_geo_content(business, result)
+        design = generate_design_md(business, result, content)
+
+        print(design.markdown)
+        print(f"\n  ── DESIGN.md generated: {len(design.markdown)} chars, {len(design.sections)} sections ──")
 
     elif cmd == "optimize":
         print("  (Optimisation GEO — nécessite LLM pour contenu personnalisé)")

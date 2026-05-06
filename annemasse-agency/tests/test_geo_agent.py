@@ -5,11 +5,15 @@ Skill #6 (Evals) + Skill #12 (GEO optimization).
 
 import pytest
 from geo_agent import (
+    DesignMdContract,
     GeoAuditContract,
     GeoOptimizedContent,
     GeoReportContract,
     GeoScoreResult,
     _grade,
+    _get_profile,
+    _SECTOR_PROFILES,
+    generate_design_md,
     generate_geo_content,
     generate_report,
     score_authority,
@@ -333,3 +337,225 @@ class TestReport:
         report = generate_report(sample_businesses)
         # Lower average = higher opportunity
         assert report.geo_opportunity_score == round(100 - report.average_score, 1)
+
+
+# ── DESIGN.md Tests (inspired by VoltAgent/Google Stitch excellence) ──
+
+class TestDesignMdContract:
+    """DesignMdContract validation."""
+
+    def test_contract_validates(self):
+        d = DesignMdContract(
+            business_name="Test",
+            city="Annemasse",
+            sector="restaurant",
+            markdown="# Design System\nContent here.",
+        )
+        assert d.business_name == "Test"
+        assert d.geo_score == 0
+        assert d.sections == []
+
+    def test_contract_requires_markdown_min_10(self):
+        with pytest.raises(Exception):
+            DesignMdContract(
+                business_name="X",
+                city="Y",
+                sector="z",
+                markdown="short",
+            )
+
+    def test_contract_geo_score_bounds(self):
+        with pytest.raises(Exception):
+            DesignMdContract(
+                business_name="X",
+                city="Y",
+                sector="z",
+                geo_score=150,
+                markdown="# " + "x" * 50,
+            )
+
+
+class TestSectorProfiles:
+    """Sector-specific style profiles."""
+
+    def test_all_profiles_have_palette(self):
+        for name, profile in _SECTOR_PROFILES.items():
+            assert "palette" in profile, f"{name} missing palette"
+            pal = profile["palette"]
+            for key in ("primary", "secondary", "accent", "background", "surface", "text", "text_muted"):
+                assert key in pal, f"{name} missing palette.{key}"
+
+    def test_all_profiles_have_fonts(self):
+        for name, profile in _SECTOR_PROFILES.items():
+            assert "fonts" in profile, f"{name} missing fonts"
+            fonts = profile["fonts"]
+            for key in ("heading", "body", "fallback"):
+                assert key in fonts, f"{name} missing fonts.{key}"
+
+    def test_all_profiles_have_atmosphere(self):
+        for name, profile in _SECTOR_PROFILES.items():
+            assert "atmosphere" in profile, f"{name} missing atmosphere"
+            assert len(profile["atmosphere"]) > 20
+
+    def test_all_profiles_have_radius_and_shadow(self):
+        for name, profile in _SECTOR_PROFILES.items():
+            assert "radius" in profile, f"{name} missing radius"
+            assert "shadow" in profile, f"{name} missing shadow"
+            assert "px" in profile["radius"]
+
+    def test_all_hex_colors_valid(self):
+        import re
+        hex_pattern = re.compile(r'^#[0-9A-Fa-f]{6}$')
+        for name, profile in _SECTOR_PROFILES.items():
+            pal = profile["palette"]
+            for key, color in pal.items():
+                assert hex_pattern.match(color), f"{name}.{key} = {color} is not a valid hex color"
+
+    def test_get_profile_exact_match(self):
+        for sector in _SECTOR_PROFILES:
+            assert _get_profile(sector) is _SECTOR_PROFILES[sector]
+
+    def test_get_profile_fallback(self):
+        profile = _get_profile("astrologue_voyance")
+        assert profile is _SECTOR_PROFILES["commerce"]
+
+    def test_get_profile_substring_match(self):
+        profile = _get_profile("restaurant_japonais")
+        assert profile is _SECTOR_PROFILES["restaurant"]
+
+    def test_profile_count(self):
+        assert len(_SECTOR_PROFILES) == 8
+
+
+class TestGenerateDesignMd:
+    """generate_design_md() function."""
+
+    def test_basic_generation(self, perfect_business):
+        score = score_geo(perfect_business)
+        content = generate_geo_content(perfect_business, score)
+        design = generate_design_md(perfect_business, score, content)
+
+        assert isinstance(design, DesignMdContract)
+        assert design.business_name == "Restaurant Le Lac"
+        assert design.city == "Annemasse"
+        assert len(design.markdown) > 1000
+        assert len(design.sections) >= 8
+
+    def test_generation_without_score(self, perfect_business):
+        design = generate_design_md(perfect_business)
+        assert design.geo_score == 0
+        assert "0/100" in design.markdown
+
+    def test_generation_without_content(self, perfect_business):
+        score = score_geo(perfect_business)
+        design = generate_design_md(perfect_business, score, content=None)
+        # Should still have GEO content section but with placeholder
+        assert "geo_content" in design.sections
+        assert "generate_geo_content()" in design.markdown
+
+    def test_sections_always_present(self, minimal_business):
+        design = generate_design_md(minimal_business)
+        expected = ["header", "atmosphere", "palette", "typography", "layout", "shadows", "geo_content", "schema", "local_seo", "components"]
+        for section in expected:
+            assert section in design.sections, f"Missing section: {section}"
+
+    def test_markdown_has_business_name(self, perfect_business):
+        design = generate_design_md(perfect_business)
+        assert perfect_business["name"] in design.markdown
+
+    def test_markdown_has_city(self, perfect_business):
+        design = generate_design_md(perfect_business)
+        assert "Annemasse" in design.markdown
+
+    def test_markdown_has_geo_score(self, perfect_business):
+        score = score_geo(perfect_business)
+        design = generate_design_md(perfect_business, score)
+        assert f"{score.overall_score}/100" in design.markdown
+        assert score.grade in design.markdown
+
+    def test_markdown_has_json_ld(self, perfect_business):
+        score = score_geo(perfect_business)
+        content = generate_geo_content(perfect_business, score)
+        design = generate_design_md(perfect_business, score, content)
+        assert '"@context": "https://schema.org"' in design.markdown
+        assert '"@type": "LocalBusiness"' in design.markdown
+
+    def test_markdown_has_faq(self, perfect_business):
+        score = score_geo(perfect_business)
+        content = generate_geo_content(perfect_business, score)
+        design = generate_design_md(perfect_business, score, content)
+        assert "**Q1**:" in design.markdown
+        assert "**A1**:" in design.markdown
+
+    def test_markdown_has_component_rules(self, perfect_business):
+        design = generate_design_md(perfect_business)
+        assert "CTA Button" in design.markdown
+        assert "Navigation" in design.markdown
+        assert "Footer" in design.markdown
+
+    def test_restaurant_profile_used(self):
+        biz = {"name": "Test", "city": "Gaillard", "sector": "restaurant"}
+        design = generate_design_md(biz)
+        assert design.style_profile == "restaurant"
+        assert "#8B4513" in design.markdown  # restaurant primary
+
+    def test_plombier_profile_used(self):
+        biz = {"name": "Test", "city": "Gaillard", "sector": "plombier"}
+        design = generate_design_md(biz)
+        assert design.style_profile == "plombier"
+        assert "#0D47A1" in design.markdown  # plombier primary
+
+    def test_coiffeur_profile_used(self):
+        biz = {"name": "Test", "city": "Annemasse", "sector": "coiffeur"}
+        design = generate_design_md(biz)
+        assert "#1A1A2E" in design.markdown  # coiffeur primary
+
+    def test_audit_section_present_when_score(self, perfect_business):
+        score = score_geo(perfect_business)
+        design = generate_design_md(perfect_business, score)
+        assert "audit" in design.sections
+        assert "GEO Audit Summary" in design.markdown
+        assert "Definition" in design.markdown  # axis name in audit table
+
+    def test_audit_section_absent_when_no_score(self, minimal_business):
+        design = generate_design_md(minimal_business)
+        assert "audit" not in design.sections
+
+    def test_reproducible(self, perfect_business):
+        """Deterministic: same input → same output."""
+        score = score_geo(perfect_business)
+        content = generate_geo_content(perfect_business, score)
+        d1 = generate_design_md(perfect_business, score, content)
+        d2 = generate_design_md(perfect_business, score, content)
+        # Everything except timestamp should match
+        assert d1.sections == d2.sections
+        assert d1.style_profile == d2.style_profile
+        assert d1.geo_score == d2.geo_score
+
+    def test_all_sectors_generate(self):
+        for sector in _SECTOR_PROFILES:
+            biz = {"name": f"Test {sector}", "city": "Annemasse", "sector": sector}
+            design = generate_design_md(biz)
+            assert len(design.markdown) > 1000, f"{sector} generated too little"
+            assert sector in design.markdown or design.style_profile == sector
+
+    def test_unknown_sector_uses_commerce(self):
+        biz = {"name": "Test", "city": "Annemasse", "sector": "astrologue"}
+        design = generate_design_md(biz)
+        assert design.style_profile == "commerce"
+
+    def test_header_has_socialpulse_branding(self, perfect_business):
+        design = generate_design_md(perfect_business)
+        assert "SocialPulse GEO Agent" in design.markdown
+
+    def test_haute_savoie_mentioned(self, perfect_business):
+        design = generate_design_md(perfect_business)
+        assert "Haute-Savoie" in design.markdown
+        assert "74" in design.markdown
+
+    def test_phone_and_website_in_local_seo(self, perfect_business):
+        score = score_geo(perfect_business)
+        content = generate_geo_content(perfect_business, score)
+        design = generate_design_md(perfect_business, score, content)
+        assert "4 50" in design.markdown or "+33" in design.markdown
+        assert "https://" in design.markdown
