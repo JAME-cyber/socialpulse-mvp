@@ -64,6 +64,18 @@ class CheckerAgent:
         if ch == "sms" and not lead.get("sms_consent"):
             issues.append("FATAL JURIDIQUE: SMS sans preuve de consentement (ePrivacy opt-in). À bloquer au niveau Pitcher (status skipped_sms_no_consent).")
 
+        # FIX STRUCTUREL #3 — Cohérence classification PM/EI.
+        # Un EI (personne physique) NE DOIT PAS recevoir d'email B2B opt-out sans consentement.
+        # Le Pitcher gate déjà, mais défense en profondeur: le Checker flag si incohérence.
+        from agents.legal_classifier import classify_lead
+        legal = classify_lead(lead)
+        if ch == "email" and legal.can_email_opt_in_only and not lead.get("email_consent"):
+            issues.append(
+                f"FATAL JURIDIQUE: lead classé {legal.class_.value} ({legal.forme_juridique or 'inconnu'}) "
+                f"traité en email B2B sans consentement. Données personnelles personne physique "
+                f"→ opt-in ePrivacy requis. À bloquer au niveau Pitcher (status skipped_ei_no_consent)."
+            )
+
         if ch == "sms" and len(message) > 160:
             issues.append(f"LONGUEUR: SMS > 160 ({len(message)})")
         return issues

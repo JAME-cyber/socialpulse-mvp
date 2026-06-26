@@ -99,6 +99,15 @@ def enrich_pappers(queue, max_leads=50):
                 lead["nom_entreprise"] = best.get("nom_complet", name)
                 lead["code_postal"] = siege.get("code_postal", "")
                 
+                # FIX STRUCTUREL #3 — Classification PM/EI/NUANCED (RGPD).
+                # Sans cette distinction, le pipeline traite les artisans/EI comme du
+                # B2B alors que leurs coordonnées sont des DONNÉES PERSONNELLES.
+                # Voir agents/legal_classifier.py + REPOSITIONING-BRIEF.md.
+                from agents.legal_classifier import enrich_lead_with_classification
+                legal = enrich_lead_with_classification(lead)
+                lead["legal_class"] = legal.class_.value
+                lead["legal_basis"] = legal.legal_basis
+                
                 # Dirigeants
                 dirigeants = best.get("dirigeants", [])
                 if dirigeants:

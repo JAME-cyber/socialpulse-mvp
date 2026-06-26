@@ -28,6 +28,7 @@ class PitcherAgent:
         to_pitch = [l for l in queue if l.get("status") == "filmed"]
         pitched = []
         skipped_sms = []
+        skipped_ei = []
         for lead in to_pitch:
             ch = lead.get("channel", "email")
             # FIX FATAL #2 — Gate SMS: opt-in obligatoire (ePrivacy + CPCE L.34-5).
@@ -41,14 +42,36 @@ class PitcherAgent:
                                   lead["name"])
                 print(f"  ⛔ SMS bloqué (no consent): {lead['name']}")
                 continue
+            # FIX STRUCTUREL #3 — Gate EI: un entrepreneur individuel est une personne
+            # physique → ses coordonnées sont des données personnelles RGPD. Email B2B
+            # opt-out (CPCE L.34-5) NON autorisé sans consentement. → skip + log WORM.
+            # Voir agents/legal_classifier.py + REPOSITIONING-BRIEF.md.
+            from agents.legal_classifier import classify_lead, LegalClass
+            legal = classify_lead(lead)
+            if ch == "email" and legal.can_email_opt_in_only and not lead.get("email_consent"):
+                lead.update({"status": "skipped_ei_no_consent", "pitch_ready": False,
+                             "legal_class": legal.class_.value})
+                skipped_ei.append(lead)
+                self.journal.log("pitcher.ei_skip", "email",
+                                  {"reason": "ei_no_consent",
+                                   "legal_basis": "opt-in ePrivacy requis (personne physique)",
+                                   "forme_juridique": legal.forme_juridique,
+                                   "matched": legal.matched_pattern},
+                                  lead["name"])
+                print(f"  ⛔ Email bloqué (EI sans consent): {lead['name']} [{legal.class_.value}]")
+                continue
             msg = self._message(lead, ch, campaign)
-            lead.update({"pitch_channel": ch, "pitch_message": msg, "pitch_ready": True, "status": "pitched"})
+            lead.update({"pitch_channel": ch, "pitch_message": msg, "pitch_ready": True,
+                         "status": "pitched", "legal_class": legal.class_.value,
+                         "legal_basis": legal.legal_basis})
             pitched.append(lead)
-            self.journal.log("pitcher.prepare", ch, {"length": len(msg)}, lead["name"])
-            print(f"  📤 Pitch: {lead['name']} via {ch}")
+            self.journal.log("pitcher.prepare", ch, {"length": len(msg),
+                              "legal_class": legal.class_.value}, lead["name"])
+            print(f"  📤 Pitch: {lead['name']} via {ch} [{legal.class_.value}]")
         self.state.save_queue(queue)
         self._save_report(pitched)
-        print(f"\n  ✅ Pitcher: {len(pitched)} messages prêts, {len(skipped_sms)} SMS bloqués (no consent)")
+        print(f"\n  ✅ Pitcher: {len(pitched)} messages prêts, "
+              f"{len(skipped_sms)} SMS bloqués, {len(skipped_ei)} EI bloqués (no consent)")
         return pitched
 
     def _message(self, lead, channel, campaign):
